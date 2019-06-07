@@ -23,13 +23,16 @@ def download_files():
     yesterday = local_tz.localize(naive, is_dst=None).strftime('%Y%m%d')
 
     model_name = 'FBOFeed' + yesterday
-
-    print(model_name)
+    model_files_url = root_ftp_url + model_name
 
     #downloading part
     http = urllib3.PoolManager()
-    r = http.request('GET', model_name)
+    r = http.request('GET', root_ftp_url)
     if r.status != 200:
         raise ValueError("The url the model files can't be loaded")
     else:
         soup = bs(r.data, 'html.parser')
+
+    print(soup)
+
+download_files()
