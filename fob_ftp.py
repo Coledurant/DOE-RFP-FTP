@@ -42,7 +42,3 @@ def download_files():
     with closing(request.urlopen(model_files_url)) as r:
         with open(model_name, 'wb') as f:
             shutil.copyfileobj(r, f)
-
-
-
-download_files()
