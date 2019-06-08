@@ -10,9 +10,15 @@ import os
 from datetime import datetime, timedelta
 from tzlocal import get_localzone
 
+import shutil
+import urllib.request as request
+from contextlib import closing
 
 
 def download_files():
+
+    curr_dir = os.getcwd()
+
     root_ftp_url = 'ftp://ftp.fbo.gov/'
 
     DAY = timedelta(1)
@@ -25,14 +31,18 @@ def download_files():
     model_name = 'FBOFeed' + yesterday
     model_files_url = root_ftp_url + model_name
 
-    #downloading part
-    http = urllib3.PoolManager()
-    r = http.request('GET', root_ftp_url)
-    if r.status != 200:
-        raise ValueError("The url the model files can't be loaded")
-    else:
-        soup = bs(r.data, 'html.parser')
+    ftp_files_dir = os.path.join(curr_dir + '/' + 'ftp_files')
 
-    print(soup)
+    if os.path.exists(ftp_files_dir):
+        os.chdir(ftp_files_dir)
+    else:
+        os.mkdir(ftp_files_dir)
+        os.chdir(ftp_files_dir)
+
+    with closing(request.urlopen(model_files_url)) as r:
+        with open(model_name, 'wb') as f:
+            shutil.copyfileobj(r, f)
+
+
 
 download_files()
