@@ -1,17 +1,25 @@
-import urllib3
-import datetime as dt
-from ftplib import FTP
+from bs4 import BeautifulSoup
 import requests
-from bs4 import BeautifulSoup as bs
-from tqdm import tqdm
-import time
+import warnings
+import urllib.request
+from contextlib import closing
+import shutil
 import re
+from collections import Counter
 import os
+import json
+import sys
 from datetime import datetime, timedelta
-from tzlocal import get_localzone
+import logging
+warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
-from fob_ftp import download_files
+logger = logging.getLogger(__name__)
+
+from fbo_ftp_scraper import *
+
 
 if __name__ == '__main__':
 
-    download_files()
+    nightly_data = get_nightly_data()
+
+    read_data(nightly_data)
