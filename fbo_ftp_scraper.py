@@ -465,7 +465,7 @@ def filter_json(merge_notices_dict, notice_types, naics):
             try:
                 notice_naics = notice['NAICS']
             except KeyError:
-                #if there's no NAICS, then we can't properly filter it
+                #if there's no NAICS, can't properly filter it
                 continue
             # see if the NAICS starts with any of the naics codes provided by self
             if any(notice_naics.startswith(n) for n in naics):
@@ -539,24 +539,39 @@ def get_nightly_data(date = None,
     return nightly_data
 
 
-def read_data(data_dict):
+def get_message_field(data_dict):
+
+    rfp_strings = []
 
     for notice_type, datalist in data_dict.items():
 
         for rfp in datalist:
 
-            print(rfp['agency'])
-            print(rfp['naics'])
-            print(rfp['date'], rfp['year'])
-            print(rfp['office'])
-            print(rfp['subject'])
-            print(rfp['url'])
-            print(rfp['emails'])
-            print('+++++++++++++++++++++++++++++++++++++++')
-            print(rfp['desc'])
-            print('\n')
-            print('\n')
-            print('\n')
+            if isinstance(rfp['desc'], (list,)):
+                desc_str = ' '.join(rfp['desc'])
+            elif isinstance(rfp['desc'], (str,)):
+                desc_str = rfp['desc']
+            else:
+                desc_str = 'No description found!'
 
+            if isinstance(rfp['emails'], (list,)):
+                emails_str = ' '.join(rfp['emails'])
+            elif isinstance(rfp['emails'], (str,)):
+                emails_str = rfp['emails']
+            else:
+                emails_str = 'No emails found!'
 
-    return None
+            rfp_str = 'Agency: ' + rfp['agency'] + '\n' + \
+            'NAICS Code: ' + rfp['naics'] + '\n' + \
+            'Date: ' + '{}/{}/{}'.format(rfp['date'][:2], rfp['date'][2:], rfp['year']) + '\n' + \
+            'Office: ' + rfp['office'] + '\n' + \
+            'Subject: ' + rfp['subject'] + '\n' + \
+            'URL: ' + rfp['url'] + '\n' + \
+            'Emails: ' + emails_str + '\n' + \
+            'Description: ' + desc_str
+
+            rfp_strings.append(rfp_str)
+
+    message_field = '\n \n \n \n'.join(rfp_strings)
+
+    return message_field
