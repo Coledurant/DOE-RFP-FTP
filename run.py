@@ -25,9 +25,15 @@ if __name__ == '__main__':
 
     message_field = get_message_field(nightly_data)
 
-    now_minus_two = datetime.utcnow() - timedelta(2)
-    date = now_minus_two.strftime("%m/%d/%Y")
-    subject = 'DOE RFP Alert {0}'.format(date)
-    recipients = ['cdurant@armadapower.com']
+    if len(message_field) > 0:
 
-    send_email('doerfpalert@gmail.com', 'DoeRfp1!!',recipients, subject, message_field)
+        now_minus_two = datetime.utcnow() - timedelta(2)
+        date = now_minus_two.strftime("%m/%d/%Y")
+        subject = 'DOE RFP Alert {0}'.format(date)
+        recipients = ['cdurant@armadapower.com']
+
+        send_email('doerfpalert@gmail.com', 'DoeRfp1!!',recipients, subject, message_field)
+
+    else:
+
+        print('No new RFP matching criteria')

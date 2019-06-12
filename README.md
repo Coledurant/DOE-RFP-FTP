@@ -72,27 +72,3 @@
     <td>Blue gas, carbureted, distribution</td>
   </tr>
 </table>
-
-<h4 style="text-align:center">2213 NAICS Codes</h4>
-<table style="width:100%">
-  <tr>
-    <th>NAICS Code</th>
-    <th>Title</th>
-    <th>Common Keywords</th>
-  </tr>
-  <tr>
-    <td>221310</td>
-    <td>Water Supply and Irrigation Systems</td>
-    <td>Canal, irrigation</td>
-  </tr>
-  <tr>
-    <td>221320</td>
-    <td>Sewage Treatment Facilities</td>
-    <td>Collection, treatment, and disposal of waste through a sewer system</td>
-  </tr>
-  <tr>
-    <td>221330</td>
-    <td>Steam and Air-Conditioning Supply</td>
-    <td>Blue gas, carbureted, distribution</td>
-  </tr>
-</table>
