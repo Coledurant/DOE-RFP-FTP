@@ -1,7 +1,6 @@
 <h1 style="text-align:center">DOE-RFP-FTP</h1>
 
-<h4 style="text-align:center">NAICS Codes</h4>
-
+<h4 style="text-align:center">2211 NAICS Codes</h4>
 <table style="width:100%">
   <tr>
     <th>NAICS Code</th>
@@ -58,5 +57,42 @@
     <td>Electric Power Distribution</td>
     <td>Distribution of electric power</td>
   </tr>
+</table>
 
+<h4 style="text-align:center">2212 NAICS Codes</h4>
+<table style="width:100%">
+  <tr>
+    <th>NAICS Code</th>
+    <th>Title</th>
+    <th>Common Keywords</th>
+  </tr>
+  <tr>
+    <td>221210</td>
+    <td>Natural Gas Distribution</td>
+    <td>Blue gas, carbureted, distribution</td>
+  </tr>
+</table>
+
+<h4 style="text-align:center">2213 NAICS Codes</h4>
+<table style="width:100%">
+  <tr>
+    <th>NAICS Code</th>
+    <th>Title</th>
+    <th>Common Keywords</th>
+  </tr>
+  <tr>
+    <td>221310</td>
+    <td>Water Supply and Irrigation Systems</td>
+    <td>Canal, irrigation</td>
+  </tr>
+  <tr>
+    <td>221320</td>
+    <td>Sewage Treatment Facilities</td>
+    <td>Collection, treatment, and disposal of waste through a sewer system</td>
+  </tr>
+  <tr>
+    <td>221330</td>
+    <td>Steam and Air-Conditioning Supply</td>
+    <td>Blue gas, carbureted, distribution</td>
+  </tr>
 </table>
