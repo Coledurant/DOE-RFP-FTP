@@ -1,7 +1,62 @@
-# DOE-RFP-FTP
+<h1 style="text-align:center">DOE-RFP-FTP</h1>
 
-<ul>
-  <li>
-    221111
-  </li>
-</ul>
+<h4 style="text-align:center">NAICS Codes</h4>
+
+<table style="width:100%">
+  <tr>
+    <th>NAICS Code</th>
+    <th>Title</th>
+    <th>Common Keywords</th>
+  </tr>
+  <tr>
+    <td>221111</td>
+    <td>Hydroelectric Power Generation</td>
+    <td>Electric power generation, hydroelectric</td>
+  </tr>
+  <tr>
+    <td>221112</td>
+    <td>Fossil Fuel Electric Power Generation</td>
+    <td>Electric power generation, fossil fuel (e.g., coal, oil, gas)</td>
+  </tr>
+  <tr>
+    <td>221113</td>
+    <td>Nuclear Electric Power Generation</td>
+    <td>Electric power generation, nuclear</td>
+  </tr>
+  <tr>
+    <td>221114</td>
+    <td>Solar Electric Power Generation</td>
+    <td>Electric power generation, solar</td>
+  </tr>
+  <tr>
+    <td>221115</td>
+    <td>Wind Electric Power Generation</td>
+    <td>Electric power generation, wind</td>
+  </tr>
+  <tr>
+    <td>221116</td>
+    <td>Geothermal Electric Power Generation</td>
+    <td>Electric power generation, geothermal</td>
+  </tr>
+  <tr>
+    <td>221117</td>
+    <td>Biomass Electric Power Generation</td>
+    <td>Biomass electric power generation</td>
+  </tr>
+  <tr>
+    <td>221118</td>
+    <td>Other Electric Power Generation</td>
+    <td>Electric power generation, tidal</td>
+  </tr>
+  <tr>
+    <td>221121</td>
+    <td>Electric Bulk Power Transmission and Control</td>
+    <td>Electric power control</td>
+  </tr>
+  <tr>
+    <td>221122</td>
+    <td>Electric Power Distribution</td>
+    <td>Distribution of electric power</td>
+  </tr>
+
+</table>
