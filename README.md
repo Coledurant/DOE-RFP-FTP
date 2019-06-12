@@ -72,3 +72,19 @@
     <td>Blue gas, carbureted, distribution</td>
   </tr>
 </table>
+
+<h4 style="text-align:center">Other NAICS Codes</h4>
+<table style="width:100%">
+  <tr>
+    <th>NAICS Code</th>
+    <th>Title</th>
+  </tr>
+  <tr>
+    <td>541330</td>
+    <td>Engineering Services</td>
+  </tr>
+  <tr>
+    <td>881412</td>
+    <td>Appliance Repair and Maintenance</td>
+  </tr>
+</table>
