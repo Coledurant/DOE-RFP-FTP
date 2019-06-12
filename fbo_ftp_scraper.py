@@ -521,21 +521,6 @@ def get_nightly_data(date = None,
     merge_notices_dict = pseudo_xml_to_json(file_lines)
     nightly_data = filter_json(merge_notices_dict, notice_types, naics)
 
-    file_date_name = date + 'Data' + '.txt'
-
-    nightly_data_dir = os.path.join(curr_dir + '/' + 'nightly_data')
-
-    if os.path.exists(nightly_data_dir):
-        os.chdir(nightly_data_dir)
-    else:
-        os.mkdir(nightly_data_dir)
-        os.chdir(nightly_data_dir)
-
-    with open(file_date_name, 'w') as file:
-        file.write(json.dumps(nightly_data))
-
-    os.chdir(curr_dir)
-
     return nightly_data
 
 
