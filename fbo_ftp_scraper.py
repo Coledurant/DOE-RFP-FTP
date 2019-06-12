@@ -495,7 +495,7 @@ def filter_json(merge_notices_dict, notice_types, naics):
 
 def get_nightly_data(date = None,
                      notice_types = ['MOD','PRESOL','COMBINE', 'AMDCSS'],
-                     naics = ['2211','221210']):
+                     naics = ['2211','221210', '541330', '881412']):
     '''
     Exectutes methods in fbo_nightly_scraper module.
     Parameters:
