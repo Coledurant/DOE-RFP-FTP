@@ -1,0 +1,20 @@
+221111 - Hydroelectric Power Generation
+          - Electric power generation, hydroelectric
+221112 - Fossil Fuel Electric Power Generation
+          - Electric power generation, fossil fuel (e.g., coal, oil, gas)
+221113 - Nuclear Electric Power Generation
+          - Electric power generation, nuclear
+221114 - Solar Electric Power Generation
+          - Electric power generation, solar
+221115 - Wind Electric Power Generation
+          - Electric power generation, wind
+221116 - Geothermal Electric Power Generation
+          - Electric power generation, geothermal
+221117 - Biomass Electric Power Generation
+          - Biomass electric power generation
+221118 - Other Electric Power Generation
+          - Electric power generation, tidal
+221121 - Electric Bulk Power Transmission and Control
+          - Electric power control
+221122 - Electric Power Distribution
+          - Distribution of electric power
