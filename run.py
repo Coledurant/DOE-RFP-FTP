@@ -32,7 +32,7 @@ if __name__ == '__main__':
         subject = 'DOE RFP Alert {0}'.format(date)
         recipients = ['cdurant@armadapower.com']
 
-        send_email('doerfpalert@gmail.com', 'DoeRfp1!!',recipients, subject, message_field)
+        send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, message_field)
 
     else:
 

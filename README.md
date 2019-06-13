@@ -88,3 +88,18 @@
     <td>Appliance Repair and Maintenance</td>
   </tr>
 </table>
+
+<ul>
+  <li>
+    Modification to a Previous Base (MOD)
+  </li>
+  <li>
+    Presolicitation (PRESOL)
+  </li>
+  <li>
+    Combined Synopsis/Solicitation (COMBINE)
+  </li>
+  <li>
+    Amendment to a Previous Combined Solicitation (AMDCSS)
+  </li>
+</ul>

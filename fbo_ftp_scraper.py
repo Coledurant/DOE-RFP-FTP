@@ -546,8 +546,13 @@ def get_message_field(data_dict):
             else:
                 emails_str = 'No emails found!'
 
+            try:
+                ntype = '\n' + 'Notice Type: ' + rfp['ntype']
+            except KeyError:
+                ntype = ''
+
             rfp_str = 'Agency: ' + rfp['agency'] + '\n' + \
-            'NAICS Code: ' + rfp['naics'] + '\n' + \
+            'NAICS Code: ' + rfp['naics'] + ntype + '\n' + \
             'Date: ' + '{}/{}/{}'.format(rfp['date'][:2], rfp['date'][2:], rfp['year']) + '\n' + \
             'Office: ' + rfp['office'] + '\n' + \
             'Subject: ' + rfp['subject'] + '\n' + \
