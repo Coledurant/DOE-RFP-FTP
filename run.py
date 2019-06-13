@@ -35,5 +35,4 @@ if __name__ == '__main__':
         send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, message_field)
 
     else:
-
         print('No new RFP matching criteria')

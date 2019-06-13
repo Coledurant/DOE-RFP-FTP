@@ -89,6 +89,7 @@
   </tr>
 </table>
 
+<h4 style="text-align:center">Notice Types</h4>
 <ul>
   <li>
     Modification to a Previous Base (MOD)
