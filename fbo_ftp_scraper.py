@@ -533,8 +533,7 @@ def check_desc(desc_str, phrases):
         return False
 
 
-def get_message_field(data_dict, phrases = [],
-                        check_for_phrases = True):
+def get_message_field(data_dict, phrases, check_for_phrases = True):
 
     '''
     Puts together email message field
