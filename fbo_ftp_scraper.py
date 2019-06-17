@@ -494,7 +494,7 @@ def filter_json(merge_notices_dict, notice_types, naics):
 
 
 
-def get_nightly_data(date = None,
+def get_nightly_data(date = '20190611',
                      notice_types = ['MOD','PRESOL','COMBINE', 'AMDCSS'],
                      naics = ['2211','221210', '541330', '881412']):
     '''
@@ -525,7 +525,26 @@ def get_nightly_data(date = None,
     return nightly_data
 
 
-def get_message_field(data_dict):
+def check_desc(desc_str, phrases):
+
+    if any(phrase.lower() in desc_str for phrase in phrases):
+        return True
+    else:
+        return False
+
+
+def get_message_field(data_dict, phrases = [],
+                        check_for_phrases = True):
+
+    '''
+    Puts together email message field
+    Parameters:
+        data_dict (dict):
+        phrases (list):
+        check_for_phrases (boolean):
+    Returns:
+        message_field (str):
+    '''
 
     rfp_strings = []
 
@@ -561,7 +580,18 @@ def get_message_field(data_dict):
             'Emails: ' + emails_str + '\n' + \
             'Description: ' + desc_str
 
-            rfp_strings.append(rfp_str)
+            if check_for_phrases:
+
+                if check_desc(desc_str, phrases):
+                    print('yes')
+                    rfp_strings.append(rfp_str)
+                else:
+                    print('no')
+                    pass
+
+            else:
+
+                rfp_strings.append(rfp_str)
 
     message_field = '\n \n \n \n'.join(rfp_strings)
 
