@@ -494,7 +494,7 @@ def filter_json(merge_notices_dict, notice_types, naics):
 
 
 
-def get_nightly_data(date = '20190611',
+def get_nightly_data(date = None,
                      notice_types = ['MOD','PRESOL','COMBINE', 'AMDCSS'],
                      naics = ['2211','221210', '541330', '881412']):
     '''
@@ -527,20 +527,55 @@ def get_nightly_data(date = '20190611',
 
 def check_desc(desc_str, phrases):
 
-    if any(phrase.lower() in desc_str for phrase in phrases):
+    '''
+    Checks if any of the required phrases (phrases) are in the rfp description (desc_str)
+    Not case sensitive
+    Parameters:
+        desc_str (str): rfp description
+        phrases (list): List of phrases to check for
+    Returns:
+        Boolean depending on if any of the phrases are in the description
+    '''
+
+    if any(phrase.lower() in desc_str.lower() for phrase in phrases):
         return True
     else:
         return False
 
 
-def get_message_field(data_dict, phrases, check_for_phrases = True):
+def check_agency(agency_str, agencies):
+
+    '''
+    Checks if the rfp agency (agency_str) is in the list of required agencies (agencies)
+    Parameters:
+        agency_str (str): Agency string of the rfp
+        agencies (list): List of agencies to check for
+    Returns:
+        Boolean depending on if the agency_str is in the list of agencies
+    '''
+
+    if agency_str.lower() in [agency.lower() for agency in agencies]:
+
+        return True
+
+    else:
+
+        return False
+
+
+def get_message_field(data_dict, phrases = ['CyberSecurity'],
+                        agencies = ['Department of the Army'],
+                        check_for_phrases = False,
+                        check_for_agency = False):
 
     '''
     Puts together email message field
     Parameters:
-        data_dict (dict):
-        phrases (list):
-        check_for_phrases (boolean):
+        data_dict (dict): Nightly data dict of rfps
+        phrases (list): List of phrases to check the rfp description for if check_for_phrases is True
+        agencies (list): List of rfp agencies to check for if check_for_agency is True
+        check_for_phrases (boolean): Boolean for whether or not you want only rfps with the phrases in their description
+        check_for_agency (boolean): Boolean for whether or not you want only rfps from pre-specified agencies
     Returns:
         message_field (str):
     '''
@@ -579,18 +614,22 @@ def get_message_field(data_dict, phrases, check_for_phrases = True):
             'Emails: ' + emails_str + '\n' + \
             'Description: ' + desc_str
 
-            if check_for_phrases:
-
-                if check_desc(desc_str, phrases):
-                    print('yes')
+            if check_for_phrases and check_for_agency:
+                if check_desc(desc_str, phrases) and check_agency(rfp['agency'], agencies):
                     rfp_strings.append(rfp_str)
-                else:
-                    print('no')
-                    pass
-
+                else:pass
+            elif check_for_phrases == True and check_for_agency == False:
+                print('checking desc')
+                if check_desc(desc_str, phrases):
+                    rfp_strings.append(rfp_str)
+                else:pass
+            elif check_for_phrases == False and check_for_agency == True:
+                if check_agency(rfp['agency'], agencies):
+                    rfp_strings.append(rfp_str)
+                else:pass
             else:
-
                 rfp_strings.append(rfp_str)
+
 
     message_field = '\n \n \n \n'.join(rfp_strings)
 

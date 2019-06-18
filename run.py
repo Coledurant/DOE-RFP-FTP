@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     nightly_data = get_nightly_data()
 
-    message_field = get_message_field(nightly_data, ['energy'])
+    message_field = get_message_field(nightly_data)
 
     if len(message_field) > 0:
 
