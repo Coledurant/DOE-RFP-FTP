@@ -1,6 +1,6 @@
 <h1 style="text-align:center">DOE-RFP-FTP</h1>
 
-<h4 style="text-align:center">2211 NAICS Codes</h4>
+<h4 style="text-align:center">2211 NAICS Codes (Electric Power Generation, Transmission and Distribution)</h4>
 <table style="width:100%">
   <tr>
     <th>NAICS Code</th>
@@ -59,7 +59,7 @@
   </tr>
 </table>
 
-<h4 style="text-align:center">2212 NAICS Codes</h4>
+<h4 style="text-align:center">2212 NAICS Codes (Natural Gas Distribution)</h4>
 <table style="width:100%">
   <tr>
     <th>NAICS Code</th>

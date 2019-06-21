@@ -69,7 +69,6 @@ def get_email_from_url(url):
 def extract_emails(notice):
     '''
     Given a contact field from a notice, extract the email addresses and first contact name.
-
     Parameters:
         notice (dict): a dict representing a single fbo notice from their FTP
 
