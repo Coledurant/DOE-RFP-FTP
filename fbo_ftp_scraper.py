@@ -562,9 +562,11 @@ def check_agency(agency_str, agencies):
         return False
 
 
-def get_message_field(data_dict, phrases = ['CyberSecurity'],
-                        agencies = ['Department of the Army'],
-                        check_for_phrases = False,
+def get_message_field(data_dict, phrases = ['battery storage', 'microgrids', 'minigrids', 'demand response',
+                        'energy efficiency', 'multi-unit housing', 'Non-Wires Alternative', 'NWA',
+                        'transformer', 'substation', 'circuit', 'Smart cities', 'frequency'],
+                        agencies = ['Department of Energy'],
+                        check_for_phrases = True,
                         check_for_agency = False):
 
     '''
