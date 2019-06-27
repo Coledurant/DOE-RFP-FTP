@@ -574,7 +574,7 @@ def get_message_field(data_dict, phrases = ['battery storage', 'microgrids', 'mi
                         'energy efficiency', 'multi-unit housing', 'Non-Wires Alternative', 'NWA',
                         'transformer', 'substation', 'circuit', 'Smart cities', 'frequency'],
                         agencies = ['Department of Energy'],
-                        check_for_phrases = True,
+                        check_for_phrases = False,
                         check_for_agency = False):
 
     '''
@@ -628,7 +628,6 @@ def get_message_field(data_dict, phrases = ['battery storage', 'microgrids', 'mi
                     rfp_strings.append(rfp_str)
                 else:pass
             elif check_for_phrases == True and check_for_agency == False:
-                print('checking desc')
                 if check_desc(desc_str, phrases):
                     rfp_strings.append(rfp_str)
                 else:pass

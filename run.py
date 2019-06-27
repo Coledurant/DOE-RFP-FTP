@@ -15,24 +15,29 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
 
-from fbo_ftp_scraper import *
 from send_email import send_email
+from fbo_ftp_scraper import *
+from scrapers import *
+
 
 
 if __name__ == '__main__':
 
+    # FBO FTP SCRAPER
     nightly_data = get_nightly_data()
-
     message_field = get_message_field(nightly_data)
-
     if len(message_field) > 0:
-
         now_minus_two = datetime.utcnow() - timedelta(2)
         date = now_minus_two.strftime("%m/%d/%Y")
         subject = 'DOE RFP Alert {0}'.format(date)
         recipients = ['cdurant@armadapower.com']
 
+        # Run scrapers now and add any other emails to this one?
+
         send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, message_field)
 
     else:
         print('No new RFP matching criteria')
+
+    # SCRAPERS
+    main()
