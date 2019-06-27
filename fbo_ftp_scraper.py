@@ -15,6 +15,17 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
 
+
+curr_dir = os.getcwd()
+data_dir = os.path.join(curr_dir, 'data')
+fbo_dir = os.path.join(data_dir, 'FBO')
+out_path = os.path.join(fbo_dir,"nightly_files")
+
+
+
+
+
+
 def clean_line_text(line_text):
     '''
     Given a line of text from an FBO FTP file, clean it up using bs4
@@ -335,7 +346,6 @@ def download_from_ftp(date, fbo_ftp_url):
         file_lines (list): the lines of the nightly file
     '''
     file_name = f'fbo_nightly_{date}'
-    out_path = os.path.join(os.getcwd(),"nightly_files")
     make_out_path(out_path)
     try:
         with closing(urllib.request.urlopen(fbo_ftp_url, timeout=20)) as r:
@@ -506,8 +516,6 @@ def get_nightly_data(date = None,
     Returns:
         nightly_data (list): list of dicts in JSON format.
     '''
-
-    curr_dir = os.getcwd()
 
     if not date:
         #get day before yesterday to give FBO time to update their FTP
