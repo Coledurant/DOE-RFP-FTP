@@ -218,16 +218,6 @@ def aep_scrape(area_dir, url):
                 correspondence_email = extract_correspondence_email(rfp_soup)
                 rfp_desc = extract_rfp_desc(rfp_soup)
 
-
-                # print("RFP Title: {0}".format(rfp_name))
-                # print("Correspondence email: {0}".format(correspondence_email))
-                # print('Important Dates:')
-                # for datetype, date in datetype_date_dict.items():
-                #     print("     {0}: {1}".format(datetype, date))
-                #
-                # print('\n')
-                # print(rfp_desc)
-                # print('\n')
                 dates_string = ''
                 for datetype, date in datetype_date_dict.items():
                     apstr = "     {0}: {1}".format(datetype, date) + "\n"
@@ -244,17 +234,10 @@ def aep_scrape(area_dir, url):
 
                 rfp_name_txt = rfp_name.replace(' ',  '_') + '.txt'
                 with open(rfp_name_txt, 'w') as w:
-
                     w.write(rfp_str)
                     w.close()
 
-
-
                 os.chdir(curr_dir)
-
-
-
-
 
             except TypeError:pass
 
@@ -334,10 +317,12 @@ def puerto_rico_government(url = conf.get('all', 'puerto_rico_government_url')):
     finally:
         os.chdir(curr_dir)
 
+# Main
+###############################################################################
+def main():
 
-
-
-
+    aep()
+    puerto_rico_government()
 
 ###############################################################################
 ###############################################################################
@@ -345,5 +330,4 @@ def puerto_rico_government(url = conf.get('all', 'puerto_rico_government_url')):
 
 if __name__ == '__main__':
 
-    aep()
-    puerto_rico_government()
+    main()
