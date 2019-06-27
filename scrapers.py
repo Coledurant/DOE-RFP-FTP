@@ -12,6 +12,7 @@ import json
 import sys
 from datetime import datetime, timedelta
 import logging
+from send_email import send_email
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
@@ -65,6 +66,35 @@ puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puert
 ###############################################################################
 ###############################################################################
 ###############################################################################
+# All
+###############################################################################
+
+def download_pdf(download_url, document_name):
+
+    '''
+    Downloads a pdf at the download_url location and saves it as document_name
+    as lonf as document_name ends if .pdf
+    Parameters:
+        download_url (str): URL link for the pdf to download
+        document_name (str): Name to save the downloaded pdf under (must end in .pdf)
+    Returns:
+        None - Just downloads the pdf
+    '''
+    response = urlopen(download_url)
+    if document_name[-4:] != ".pdf":
+        raise ValueError('document_name {0} did not end in .pdf'.format(document_name))
+    else:pass
+    file = open(document_name, 'wb')
+    file.write(response.read())
+    file.close()
+
+def check_if_new(rfp):
+
+    '''
+    Not sure how to make this work for all yet
+    '''
+
+    return None
 
 # AEP
 ###############################################################################
@@ -198,6 +228,10 @@ def aep_scrape(area_dir, url):
                 rfp_dir = os.path.join(area_dir, rfp_name)
                 if not os.path.exists(rfp_dir):
                     os.mkdir(rfp_dir)
+                    new_rfp = True
+                else:
+                    new_rfp = False
+
                 os.chdir(rfp_dir)
 
                 downloaded_files = os.listdir()
@@ -223,8 +257,6 @@ def aep_scrape(area_dir, url):
                     apstr = "     {0}: {1}".format(datetype, date) + "\n"
                     dates_string += apstr
 
-
-
                 rfp_str = 'RFP Title: ' + rfp_name + '\n' + \
                 'Correspondence Email: ' + correspondence_email + '\n' + \
                 'Important Dates:' + '\n' + '\n' + \
@@ -239,17 +271,24 @@ def aep_scrape(area_dir, url):
 
                 os.chdir(curr_dir)
 
+                # Send an email out if this is a new RFP, move all emails to one place later
+                if new_rfp:
+                    subject = 'New AEP RFP Found'
+                    recipients = ['cdurant@armadapower.com']
+                    send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, rfp_str)
+                else:pass
+
             except TypeError:pass
 
 def aep():
     path_url_dict = {
-        aep_ohio_dir:'http://www.aepohio.com/b2b/rfp/',
-        aep_texas_dir:'http://www.aeptexas.com/b2b/',
-        appalachian_power_dir:'http://www.appalachianpower.com/b2b/rfp/',
-        indiana_michigan_dir:'http://www.indianamichiganpower.com/b2b/rfp/',
-        kentucky_power_dir:'http://www.kentuckypower.com/b2b/rfp/',
-        public_service_company_of_oklahoma_dir:'http://www.psoklahoma.com/b2b/rfp/',
-        southwestern_electric_power_company_dir:'http://www.swepco.com/b2b/rfp/'
+        aep_ohio_dir:conf.get('aep', 'aep_ohio_url'),
+        aep_texas_dir:conf.get('aep', 'aep_texas_url'),
+        appalachian_power_dir:conf.get('aep', 'appalachian_power_url'),
+        indiana_michigan_dir:conf.get('aep', 'indiana_michigan_url'),
+        kentucky_power_dir:conf.get('aep', 'kentucky_power_url'),
+        public_service_company_of_oklahoma_dir:conf.get('aep', 'public_service_company_of_oklahoma_url'),
+        southwestern_electric_power_company_dir:conf.get('aep', 'southwestern_electric_power_company_url')
     }
 
     for area_dir, url in path_url_dict.items():
@@ -258,26 +297,7 @@ def aep():
 # Puerto Rico Government
 ###############################################################################
 
-def download_pdf(download_url, document_name):
-
-    '''
-    Downloads a pdf at the download_url location and saves it as document_name
-    as lonf as document_name ends if .pdf
-    Parameters:
-        download_url (str): URL link for the pdf to download
-        document_name (str): Name to save the downloaded pdf under (must end in .pdf)
-    Returns:
-        None - Just downloads the pdf
-    '''
-    response = urlopen(download_url)
-    if document_name[-4:] != ".pdf":
-        raise ValueError('document_name {0} did not end in .pdf'.format(document_name))
-    else:pass
-    file = open(document_name, 'wb')
-    file.write(response.read())
-    file.close()
-
-def puerto_rico_government(url = conf.get('all', 'puerto_rico_government_url')):
+def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico_government_url')):
 
     '''
     Scrapes http://www.p3.pr.gov/prepa-transformation.html for new PREPA RFPs
