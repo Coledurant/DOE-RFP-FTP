@@ -63,7 +63,7 @@ if __name__ == '__main__':
         text_file.write('\n')
         text_file.write(message_field)
 
-    history('fbp_daily_message', hasdata)
+    history('fbp_daily_message', hasdata = hasdata)
     os.chdir(curr)
 
 
