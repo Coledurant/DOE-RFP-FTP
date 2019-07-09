@@ -23,6 +23,12 @@ from scrapers import *
 
 if __name__ == '__main__':
 
+    history()
+
+    curr = os.getcwd()
+    daily_message_dir = os.path.join(curr, 'data', 'FBO', 'daily_message')
+
+    print('\n')
     # FBO FTP SCRAPER
     nightly_data = get_nightly_data()
     message_field = get_message_field(nightly_data)
@@ -34,10 +40,31 @@ if __name__ == '__main__':
 
         # Run scrapers now and add any other emails to this one?
 
-        send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, message_field)
+        send_email('rfpsender@gmail.com', 'Rfpsender1!!', recipients, subject, message_field)
 
     else:
-        print('No new RFP matching criteria')
 
+        message_field = 'No new RFP matching criteria'
+
+    if not os.path.exists(daily_message_dir):
+        os.mkdir(daily_message_dir)
+    os.chdir(daily_message_dir)
+    with open("daily_message.txt", "w") as text_file:
+
+        now_minus_two = datetime.utcnow() - timedelta(2)
+        date = now_minus_two.strftime("%m/%d/%Y")
+        text_file.write(date)
+
+    with open("daily_message.txt", "a") as text_file:
+        text_file.write('\n')
+        text_file.write(message_field)
+    os.chdir(curr)
+
+
+
+    print('------------------------')
+    print('Running scrapers')
+    print('------------------------')
+    print('   - FBO FTP finished')
     # SCRAPERS
     main()

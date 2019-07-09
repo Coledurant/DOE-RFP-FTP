@@ -66,6 +66,7 @@ puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puert
 ###############################################################################
 ###############################################################################
 ###############################################################################
+
 # All
 ###############################################################################
 
@@ -88,12 +89,59 @@ def download_pdf(download_url, document_name):
     file.write(response.read())
     file.close()
 
+    inf = os.getcwd().split('RFPFinder/data')
+    print(inf)
+
+
+    history('pdf_download', pdf_name = document_name)
+
 def check_if_new(rfp):
 
     '''
     Not sure how to make this work for all yet
     '''
 
+    return None
+
+def history(change_type='run', **kwargs):
+
+    '''
+    Goal is to try to keep a file of all new downloads and when they occur
+    '''
+    begin_dir = os.getcwd()
+
+    now_minus_two = datetime.utcnow() - timedelta(2)
+    hist_date = now_minus_two.strftime("%m/%d/%Y")
+
+    os.chdir(data_dir)
+
+    if change_type == 'run':
+
+        with open("history.txt", "a") as text_file:
+
+            text_file.write(hist_date)
+            text_file.write('\n')
+            text_file.write('   - Run')
+            text_file.write('\n')
+            text_file.write('\n')
+
+    elif change_type == 'pdf_download':
+
+        pdf_name = kwargs.get('pdf_name')
+
+        with open("history.txt", "a") as text_file:
+
+            text_file.write(hist_date)
+            text_file.write('\n')
+            text_file.write('   - {0} downloaded to {1} under {2}'.format(pdf_name, 'folder', 'organization'))
+            text_file.write('\n')
+            text_file.write('\n')
+
+
+
+
+
+    os.chdir(begin_dir)
     return None
 
 # AEP
@@ -200,6 +248,8 @@ def aep_scrape(area_dir, url):
 
     '''
 
+    new_rfps = []
+
     if not os.path.exists(area_dir):
         os.mkdir(area_dir)
     else:pass
@@ -273,12 +323,12 @@ def aep_scrape(area_dir, url):
 
                 # Send an email out if this is a new RFP, move all emails to one place later
                 if new_rfp:
-                    subject = 'New AEP RFP Found'
-                    recipients = ['cdurant@armadapower.com']
-                    send_email('rfpsender@gmail.com', 'Rfpsender1!!',recipients, subject, rfp_str)
+                    new_rfps.append(new_rfp)
                 else:pass
 
             except TypeError:pass
+
+        return new_rfps
 
 def aep():
     path_url_dict = {
@@ -316,6 +366,7 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
 
     rfp_links = soup.findAll('li', attrs={'class':'T-tulos-para-Comunicados-Noticias LinkStyle-Table'})
     pdf_links = [link for link in [str(pdf_link + link.find('a')['href']) for link in rfp_links] if link[-4:] == '.pdf']
+    pdf_links = [link[21:] if link.startswith('http://www.p3.pr.gov/http://www.p3.pr.gov/') else link for link in pdf_links]
 
     if os.path.exists(puerto_rico_government_pdf_dir):
         os.chdir(puerto_rico_government_pdf_dir)
@@ -324,25 +375,31 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
         os.chdir(puerto_rico_government_pdf_dir)
 
     downloaded_files = os.listdir()
-    try:
-        for link in pdf_links:
+
+    for link in pdf_links:
+
+        try:
+
             fname = link.split('/assets/')[1]
             if fname not in downloaded_files:
                 download_pdf(link, fname)
             else:
                 # This file has already been downloaded
                 pass
-    except Exception as e:
-        print(e)
-    finally:
-        os.chdir(curr_dir)
+        except Exception as e:
+            print(e)
+
+
+    os.chdir(curr_dir)
 
 # Main
 ###############################################################################
 def main():
 
     aep()
+    print('   - AEP finished')
     puerto_rico_government()
+    print('   - Government of Puerto Rico finished')
 
 ###############################################################################
 ###############################################################################
