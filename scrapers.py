@@ -143,9 +143,10 @@ def history(change_type='run', **kwargs):
         hasdata = kwargs.get('hasdata')
 
         sheet = book['FBO FTP Access']
+        now_minus_two = datetime.utcnow() - timedelta(2)
 
         # Time, FTP Access, hasdata
-        sheet.append([now, 'FTP Access', hasdata])
+        sheet.append([now_minus_two, 'FTP Access', hasdata])
 
 
 
