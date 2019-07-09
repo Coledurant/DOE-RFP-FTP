@@ -13,6 +13,9 @@ import sys
 from datetime import datetime, timedelta
 import logging
 from send_email import send_email
+import pandas
+from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter, column_index_from_string
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
