@@ -113,7 +113,7 @@ def history(change_type='run', **kwargs):
     '''
     begin_dir = os.getcwd()
 
-    now = datetime.datetime.now()
+    now = datetime.now()
     hist_date = now.strftime("%m/%d/%Y")
     hist_time = now.strftime("%H:%M")
 
