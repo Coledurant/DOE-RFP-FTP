@@ -89,11 +89,11 @@ def download_pdf(download_url, document_name):
     file.write(response.read())
     file.close()
 
-    inf = os.getcwd().split('RFPFinder/data')
-    print(inf)
+    inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
+    file_path = inf[1]
 
 
-    history('pdf_download', pdf_name = document_name)
+    history('pdf_download', pdf_name = document_name, file_path = file_path)
 
 def check_if_new(rfp):
 
@@ -110,37 +110,35 @@ def history(change_type='run', **kwargs):
     '''
     begin_dir = os.getcwd()
 
-    now_minus_two = datetime.utcnow() - timedelta(2)
-    hist_date = now_minus_two.strftime("%m/%d/%Y")
+    book = load_workbook('history.xlsx')
+
+    now = datetime.datetime.now()
+    hist_date = now.strftime("%m/%d/%Y")
+    hist_time = now.strftime("%H:%M")
 
     os.chdir(data_dir)
 
     if change_type == 'run':
 
-        with open("history.txt", "a") as text_file:
+        sheet = book['Runs']
 
-            text_file.write(hist_date)
-            text_file.write('\n')
-            text_file.write('   - Run')
-            text_file.write('\n')
-            text_file.write('\n')
+        # Time, Run
+        sheet.append([now, 'Run'])
 
     elif change_type == 'pdf_download':
 
         pdf_name = kwargs.get('pdf_name')
+        file_path = kwargs.get('file_path')
 
-        with open("history.txt", "a") as text_file:
+        sheet = book['PDF Downloads']
 
-            text_file.write(hist_date)
-            text_file.write('\n')
-            text_file.write('   - {0} downloaded to {1} under {2}'.format(pdf_name, 'folder', 'organization'))
-            text_file.write('\n')
-            text_file.write('\n')
+        # Time, PDF Name, Location
+        sheet.append([now, pdf_name, file_path])
 
 
 
 
-
+    book.save('history.xlsx')
     os.chdir(begin_dir)
     return None
 
