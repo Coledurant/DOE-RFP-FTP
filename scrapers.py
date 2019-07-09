@@ -135,8 +135,8 @@ def history(change_type='run', **kwargs):
 
         sheet = book['PDF Downloads']
 
-        # Time, PDF Name, Location
-        sheet.append([now, pdf_name, file_path])
+        # Time, Change Type, PDF Name, Location
+        sheet.append([now, 'PDF Download', pdf_name, file_path])
 
 
 
