@@ -43,10 +43,12 @@ if __name__ == '__main__':
         # Run scrapers now and add any other emails to this one?
 
         send_email('rfpsender@gmail.com', 'Rfpsender1!!', recipients, subject, message_field)
+        hasdata = True
 
     else:
 
         message_field = 'No new RFP matching criteria'
+        hasdata = False
 
     if not os.path.exists(daily_message_dir):
         os.mkdir(daily_message_dir)
@@ -60,6 +62,8 @@ if __name__ == '__main__':
     with open("daily_message.txt", "a") as text_file:
         text_file.write('\n')
         text_file.write(message_field)
+
+    history('fbp_daily_message', hasdata)
     os.chdir(curr)
 
 

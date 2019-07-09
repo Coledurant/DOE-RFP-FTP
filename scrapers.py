@@ -138,6 +138,15 @@ def history(change_type='run', **kwargs):
         # Time, Change Type, PDF Name, Location
         sheet.append([now, 'PDF Download', pdf_name, file_path])
 
+    elif change_type == 'fbo_daily_message':
+
+        hasdata = kwargs.get('hasdata')
+
+        sheet = book['FBO FTP Access']
+
+        # Time, FTP Access, hasdata
+        sheet.append([now, 'FTP Access', hasdata])
+
 
 
 
