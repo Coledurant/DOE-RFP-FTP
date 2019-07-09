@@ -113,13 +113,13 @@ def history(change_type='run', **kwargs):
     '''
     begin_dir = os.getcwd()
 
-    book = load_workbook('history.xlsx')
-
     now = datetime.datetime.now()
     hist_date = now.strftime("%m/%d/%Y")
     hist_time = now.strftime("%H:%M")
 
     os.chdir(data_dir)
+
+    book = load_workbook('history.xlsx')
 
     if change_type == 'run':
 
