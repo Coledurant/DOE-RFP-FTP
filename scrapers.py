@@ -13,7 +13,8 @@ import sys
 from datetime import datetime, timedelta
 import logging
 from send_email import send_email
-import pandas
+import pandas as pd
+from pandas import ExcelWriter
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter, column_index_from_string
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
@@ -65,6 +66,18 @@ if not os.path.exists(puerto_rico_government_dir):
     os.mkdir(puerto_rico_government_dir)
 else:pass
 puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puerto_rico_government_pdfs')
+
+# NY Rev Connect DIRS
+ny_rev_connect_dir = os.path.join(data_dir, 'NY Rev Connect')
+if not os.path.exists(ny_rev_connect_dir):
+    os.mkdir(ny_rev_connect_dir)
+else:pass
+central_hudson_dir = os.path.join(ny_rev_connect_dir, 'Central Hudson')
+conedison_dir = os.path.join(ny_rev_connect_dir, 'ConEdison')
+nationalgrid_dir = os.path.join(ny_rev_connect_dir, 'NationalGrid')
+orange_and_rockland_dir = os.path.join(ny_rev_connect_dir, 'Orange & Rockland')
+nysge_dir = os.path.join(ny_rev_connect_dir, 'NYSGE')
+rge_dir = os.path.join(ny_rev_connect_dir, 'RG & E')
 
 ###############################################################################
 ###############################################################################
@@ -146,7 +159,17 @@ def history(change_type='run', **kwargs):
         now_minus_two = datetime.utcnow() - timedelta(2)
 
         # Time, FTP Access, hasdata
-        sheet.append([now_minus_two, 'FTP Access', hasdata])
+        sheet.append([now, now_minus_two, 'FTP Access', hasdata])
+
+    elif change_type == 'ny_rev_connect':
+
+        ny_rev_area = kwargs.get('ny_rev_area')
+        ny_rev_info = kwargs.get('ny_rev_info')
+
+        sheet = book['NY Rev Connect']
+
+        # Time, NY Rev Area, Info
+        sheet.append([now, ny_rev_area, ny_rev_info])
 
 
 
@@ -403,6 +426,73 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
 
     os.chdir(curr_dir)
 
+# NY Rev Connect
+###############################################################################
+
+def central_hudson_scrape(url):
+
+    history('ny_rev_connect', ny_rev_area = 'Central Hudson', ny_rev_info = 'Saved Non Wire Alternative Opportunities Excel')
+
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
+
+    table = soup.find('table', attrs={'width':716, 'height':390})
+    table_rows = table.find_all('tr')
+
+    rows = []
+    for inum, tr in enumerate(table_rows):
+        td = tr.find_all('td')
+        row = [tr.text.replace('\n', '') for tr in td]
+
+        if inum == 0:
+            title_row = row
+        else:
+            rows.append(row)
+
+    non_wires_alternative_opps_frame = pd.DataFrame(rows, columns=title_row)
+
+    writer = ExcelWriter('Non Wires Alternative Opportunities.xlsx')
+    non_wires_alternative_opps_frame.to_excel(writer)
+    writer.save()
+
+
+
+def ny_rev_connect_scrape(area_dir, url):
+
+    if not os.path.exists(area_dir):
+        os.mkdir(area_dir)
+    os.chdir(area_dir)
+
+    if area_dir == central_hudson_dir:
+        central_hudson_scrape(url)
+
+
+
+
+
+
+    os.chdir(curr_dir)
+    return
+
+
+
+def ny_rev_connect():
+    path_url_dict = {
+        central_hudson_dir:conf.get('ny_rev_connect', 'central_hudson_url'),
+        conedison_dir:conf.get('ny_rev_connect', 'conedison_url'),
+        nationalgrid_dir:conf.get('ny_rev_connect', 'nationalgrid_url'),
+        orange_and_rockland_dir:conf.get('ny_rev_connect', 'orange_and_rockland_url'),
+        nysge_dir:conf.get('ny_rev_connect', 'nysge_url'),
+        rge_dir:conf.get('ny_rev_connect', 'rge_url'),
+    }
+
+    for area_dir, url in path_url_dict.items():
+        ny_rev_connect_scrape(area_dir, url)
+
+
+
+    return None
+
 # Main
 ###############################################################################
 def main():
@@ -411,6 +501,8 @@ def main():
     print('   - AEP finished')
     puerto_rico_government()
     print('   - Government of Puerto Rico finished')
+    ny_rev_connect()
+    print('   - NY Rev Connect finished')
 
 ###############################################################################
 ###############################################################################

@@ -15,7 +15,6 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
 
-
 curr_dir = os.getcwd()
 data_dir = os.path.join(curr_dir, 'data')
 fbo_dir = os.path.join(data_dir, 'FBO')
@@ -574,8 +573,8 @@ def get_message_field(data_dict, phrases = ['battery storage', 'microgrids', 'mi
                         'energy efficiency', 'multi-unit housing', 'Non-Wires Alternative', 'NWA',
                         'transformer', 'substation', 'circuit', 'Smart cities', 'frequency'],
                         agencies = ['Department of Energy'],
-                        check_for_phrases = False,
-                        check_for_agency = False):
+                        check_for_phrases = True,
+                        check_for_agency = True):
 
     '''
     Puts together email message field

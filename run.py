@@ -21,16 +21,50 @@ from send_email import send_email
 from fbo_ftp_scraper import *
 from scrapers import *
 
+try:
+    import configparser
+except ImportError:
+    import ConfigParser as configparser
+
 
 
 if __name__ == '__main__':
 
     history()
 
+    print('\n')
+    print('------------------------')
+    print('Running scrapers')
+    print('------------------------')
+
+    conf = configparser.ConfigParser()
+    config_file = os.path.join(os.path.dirname(__file__), "config.ini")
+    conf.read(config_file)
+
+    nightly_data_date = conf.get('FBO', 'nightly_data_date')
+    if nightly_data_date == 'None':
+        nightly_data_date = None
+    else:pass
+
+    notice_types_config = conf.get('FBO', 'notice_types')[:-1]
+    notice_types = phrases_config.split(',')
+
+
+    naics_config = conf.get('FBO', 'naics')[:-1]
+    naics = naics_config.split(',')
+
+    agencies_config = conf.get('FBO', 'agencies')[:-1]
+    agencies = agencies_config.split(',')
+
+    check_for_phrases_config = conf.get('FBO', 'check_for_phrases')
+    check_for_phrases = bool(check_for_phrases_config.split(',')[0])
+
+    check_for_agency_config = conf.get('FBO', 'check_for_agency')
+    check_for_agency = bool(check_for_agency_config.split(',')[0])
+
     curr = os.getcwd()
     daily_message_dir = os.path.join(curr, 'data', 'FBO', 'daily_message')
 
-    print('\n')
     # FBO FTP SCRAPER
     nightly_data = get_nightly_data()
     message_field = get_message_field(nightly_data)
@@ -66,11 +100,11 @@ if __name__ == '__main__':
     history('fbo_daily_message', hasdata = hasdata)
     os.chdir(curr)
 
-
-
-    print('------------------------')
-    print('Running scrapers')
-    print('------------------------')
     print('   - FBO FTP finished')
+    if not hasdata:
+        print('      - No new RFP matching criteria')
+
+
+    
     # SCRAPERS
     main()
