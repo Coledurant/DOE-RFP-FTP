@@ -26,6 +26,8 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
+from classes import ConEdisonRFP, ConEdisonDocument
+
 ###############################################################################
 ###############################################################################
 ###############################################################################
@@ -45,12 +47,14 @@ curr_dir = os.getcwd()
 data_dir = os.path.join(curr_dir, 'data')
 if not os.path.exists(data_dir):
     os.mkdir(data_dir)
+    history('created_dir', dir_location = data_dir.split('RFPFinder')[1])
 else:pass
 
 # AEP DIRS
 aep_dir = os.path.join(data_dir, 'AEP')
 if not os.path.exists(aep_dir):
     os.mkdir(aep_dir)
+    history('created_dir', dir_location = aep_dir.split('RFPFinder')[1])
 else:pass
 aep_ohio_dir = os.path.join(aep_dir, 'AEP Ohio')
 aep_texas_dir = os.path.join(aep_dir, 'AEP Texas')
@@ -64,6 +68,7 @@ southwestern_electric_power_company_dir = os.path.join(aep_dir, 'Southwestern El
 puerto_rico_government_dir = os.path.join(data_dir, 'Puerto Rico Government')
 if not os.path.exists(puerto_rico_government_dir):
     os.mkdir(puerto_rico_government_dir)
+    history('created_dir', dir_location = puerto_rico_government_dir.split('RFPFinder')[1])
 else:pass
 puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puerto_rico_government_pdfs')
 
@@ -71,6 +76,7 @@ puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puert
 ny_rev_connect_dir = os.path.join(data_dir, 'NY Rev Connect')
 if not os.path.exists(ny_rev_connect_dir):
     os.mkdir(ny_rev_connect_dir)
+    history('created_dir', dir_location = ny_rev_connect_dir.split('RFPFinder')[1])
 else:pass
 central_hudson_dir = os.path.join(ny_rev_connect_dir, 'Central Hudson')
 conedison_dir = os.path.join(ny_rev_connect_dir, 'ConEdison')
@@ -170,6 +176,14 @@ def history(change_type='run', **kwargs):
 
         # Time, NY Rev Area, Info
         sheet.append([now, ny_rev_area, ny_rev_info])
+
+    elif change_type == 'created_dir':
+
+        dir_location = kwargs.get('dir_location')
+
+        sheet = book['Created Folder']
+
+        sheet.append([now, dir_location])
 
 
 
@@ -286,6 +300,7 @@ def aep_scrape(area_dir, url):
 
     if not os.path.exists(area_dir):
         os.mkdir(area_dir)
+        history('created_dir', dir_location = area_dir.split('RFPFinder')[1])
     else:pass
 
     html = requests.get(url).content
@@ -312,6 +327,7 @@ def aep_scrape(area_dir, url):
                 rfp_dir = os.path.join(area_dir, rfp_name)
                 if not os.path.exists(rfp_dir):
                     os.mkdir(rfp_dir)
+                    history('created_dir', dir_location = rfp_dir.split('RFPFinder')[1])
                     new_rfp = True
                 else:
                     new_rfp = False
@@ -402,11 +418,10 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
     pdf_links = [link for link in [str(pdf_link + link.find('a')['href']) for link in rfp_links] if link[-4:] == '.pdf']
     pdf_links = [link[21:] if link.startswith('http://www.p3.pr.gov/http://www.p3.pr.gov/') else link for link in pdf_links]
 
-    if os.path.exists(puerto_rico_government_pdf_dir):
-        os.chdir(puerto_rico_government_pdf_dir)
-    else:
-        os.mkdir(puerto_rico_government_pdf_dir)
-        os.chdir(puerto_rico_government_pdf_dir)
+    if not os.path.exists(puerto_rico_government_pdf_dir):
+        os.mkdir(puerto_rico_government_dir)
+        history('created_dir', dir_location = puerto_rico_government_dir.split('RFPFinder')[1])
+    os.chdir(puerto_rico_government_pdf_dir)
 
     downloaded_files = os.listdir()
 
@@ -455,17 +470,81 @@ def central_hudson_scrape(url):
     non_wires_alternative_opps_frame.to_excel(writer)
     writer.save()
 
+def conedison_scrape(url):
+
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
+
+    table = soup.find('table', attrs={'class':'telerik-reTable-4'})
+
+    table_head = table.findAll('th')
+    table_rows = table.find_all('tr')
+
+
+    for row in table_rows:
+
+        cells = row.findAll('td')
+        if len(cells) == 0:
+            pass
+        else:
+            project_name = cells[0].text.replace('\n', '').replace('/', '')
+            current_status = cells[1].text
+            documents = cells[2].findAll('a')
+
+
+
+            root_link = 'https://www.coned.com'
+
+            docs = []
+            for doc in documents:
+
+                document_name = doc.text
+                url = root_link + doc['href']
+
+                docu = ConEdisonDocument(document_name, url)
+                docs.append(docu)
+
+            curr_proj = ConEdisonRFP(project_name, current_status, docs)
+
+    for rfp in ConEdisonRFP.all_rfps:
+
+        rfp_dir = os.path.join(conedison_dir, rfp.project_name)
+        if not os.path.exists(rfp_dir):
+            os.mkdir(rfp_dir)
+            history('created_dir', dir_location = rfp_dir.split('RFPFinder')[1])
+        os.chdir(rfp_dir)
+
+        for document in rfp.documents:
+
+            try:
+                name = document.document_name.replace(' ', '_') + '.pdf'
+                download_pdf(document.url, name)
+            except Exception as e:
+
+
+                # Downloading excel files as pdfs right now... needs chanegd
+                print(e)
+
+
+
+        os.chdir(conedison_dir)
+
+
+    return
+
 
 
 def ny_rev_connect_scrape(area_dir, url):
 
     if not os.path.exists(area_dir):
         os.mkdir(area_dir)
+        history('created_dir', dir_location = area_dir.split('RFPFinder')[1])
     os.chdir(area_dir)
 
     if area_dir == central_hudson_dir:
         central_hudson_scrape(url)
-
+    elif area_dir == conedison_dir:
+        conedison_scrape(url)
 
 
 

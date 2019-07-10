@@ -86,6 +86,7 @@ if __name__ == '__main__':
 
     if not os.path.exists(daily_message_dir):
         os.mkdir(daily_message_dir)
+        history('created_dir', dir_location = daily_message_dir.split('RFPFinder')[1])
     os.chdir(daily_message_dir)
     with open("daily_message.txt", "w") as text_file:
 
@@ -105,6 +106,6 @@ if __name__ == '__main__':
         print('      - No new RFP matching criteria')
 
 
-    
+
     # SCRAPERS
     main()
