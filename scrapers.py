@@ -42,55 +42,21 @@ phrases = phrases_config.split(',')
 ###############################################################################
 ###############################################################################
 
-# ROOT DIRS
-curr_dir = os.getcwd()
-data_dir = os.path.join(curr_dir, 'data')
-if not os.path.exists(data_dir):
-    os.mkdir(data_dir)
-    history('created_dir', dir_location = data_dir.split('RFPFinder')[1])
-else:pass
-
-# AEP DIRS
-aep_dir = os.path.join(data_dir, 'AEP')
-if not os.path.exists(aep_dir):
-    os.mkdir(aep_dir)
-    history('created_dir', dir_location = aep_dir.split('RFPFinder')[1])
-else:pass
-aep_ohio_dir = os.path.join(aep_dir, 'AEP Ohio')
-aep_texas_dir = os.path.join(aep_dir, 'AEP Texas')
-appalachian_power_dir = os.path.join(aep_dir, 'Appalachian Power')
-indiana_michigan_dir = os.path.join(aep_dir, 'Indiana Michigan')
-kentucky_power_dir = os.path.join(aep_dir, 'Kentucky Power')
-public_service_company_of_oklahoma_dir = os.path.join(aep_dir, 'Public Service Company of Oklahoma')
-southwestern_electric_power_company_dir = os.path.join(aep_dir, 'Southwestern Electric Power Company')
-
-# Puerto Rico Government DIRS
-puerto_rico_government_dir = os.path.join(data_dir, 'Puerto Rico Government')
-if not os.path.exists(puerto_rico_government_dir):
-    os.mkdir(puerto_rico_government_dir)
-    history('created_dir', dir_location = puerto_rico_government_dir.split('RFPFinder')[1])
-else:pass
-puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puerto_rico_government_pdfs')
-
-# NY Rev Connect DIRS
-ny_rev_connect_dir = os.path.join(data_dir, 'NY Rev Connect')
-if not os.path.exists(ny_rev_connect_dir):
-    os.mkdir(ny_rev_connect_dir)
-    history('created_dir', dir_location = ny_rev_connect_dir.split('RFPFinder')[1])
-else:pass
-central_hudson_dir = os.path.join(ny_rev_connect_dir, 'Central Hudson')
-conedison_dir = os.path.join(ny_rev_connect_dir, 'ConEdison')
-nationalgrid_dir = os.path.join(ny_rev_connect_dir, 'NationalGrid')
-orange_and_rockland_dir = os.path.join(ny_rev_connect_dir, 'Orange & Rockland')
-nysge_dir = os.path.join(ny_rev_connect_dir, 'NYSGE')
-rge_dir = os.path.join(ny_rev_connect_dir, 'RG & E')
-
-###############################################################################
-###############################################################################
-###############################################################################
-
 # All
 ###############################################################################
+
+def check_if_new_file(file_name):
+
+    files = os.listdir()
+
+    if file_name in files:
+        new=False
+    else:
+        new=True
+
+    assert isinstance(new, bool), 'Download check did not return a boolean'
+
+    return new
 
 def download_pdf(download_url, document_name):
 
@@ -103,27 +69,23 @@ def download_pdf(download_url, document_name):
     Returns:
         None - Just downloads the pdf
     '''
-    response = urlopen(download_url)
-    if document_name[-4:] != ".pdf":
-        raise ValueError('document_name {0} did not end in .pdf'.format(document_name))
+
+    if check_if_new_file(document_name):
+        response = urlopen(download_url)
+        if document_name[-4:] != ".pdf":
+            raise ValueError('document_name {0} did not end in .pdf'.format(document_name))
+        else:pass
+        file = open(document_name, 'wb')
+        file.write(response.read())
+        file.close()
+
+        inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
+        file_path = inf[1]
+
+        history('pdf_download', pdf_name = document_name, file_path = file_path)
     else:pass
-    file = open(document_name, 'wb')
-    file.write(response.read())
-    file.close()
 
-    inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
-    file_path = inf[1]
-
-
-    history('pdf_download', pdf_name = document_name, file_path = file_path)
-
-def check_if_new(rfp):
-
-    '''
-    Not sure how to make this work for all yet
-    '''
-
-    return None
+    return
 
 def history(change_type='run', **kwargs):
 
@@ -185,12 +147,72 @@ def history(change_type='run', **kwargs):
 
         sheet.append([now, dir_location])
 
+    elif change_type == 'aep':
+
+        sheet = book['AEP']
+
+        aep_type = kwargs.get('aep_type')
+        aep_area = kwargs.get('aep_area')
+        aep_info = kwargs.get('aep_info')
 
 
+        # Now, Change Type, Area Location, Information
+        sheet.append([now, aep_type, aep_area, aep_info])
 
     book.save('history.xlsx')
     os.chdir(begin_dir)
     return None
+
+###############################################################################
+###############################################################################
+###############################################################################
+
+# ROOT DIRS
+curr_dir = os.getcwd()
+data_dir = os.path.join(curr_dir, 'data')
+if not os.path.exists(data_dir):
+    os.mkdir(data_dir)
+    history('created_dir', dir_location = data_dir.split('RFPFinder')[1])
+else:pass
+
+# AEP DIRS
+aep_dir = os.path.join(data_dir, 'AEP')
+if not os.path.exists(aep_dir):
+    os.mkdir(aep_dir)
+    history('created_dir', dir_location = aep_dir.split('RFPFinder')[1])
+else:pass
+aep_ohio_dir = os.path.join(aep_dir, 'AEP Ohio')
+aep_texas_dir = os.path.join(aep_dir, 'AEP Texas')
+appalachian_power_dir = os.path.join(aep_dir, 'Appalachian Power')
+indiana_michigan_dir = os.path.join(aep_dir, 'Indiana Michigan')
+kentucky_power_dir = os.path.join(aep_dir, 'Kentucky Power')
+public_service_company_of_oklahoma_dir = os.path.join(aep_dir, 'Public Service Company of Oklahoma')
+southwestern_electric_power_company_dir = os.path.join(aep_dir, 'Southwestern Electric Power Company')
+
+# Puerto Rico Government DIRS
+puerto_rico_government_dir = os.path.join(data_dir, 'Puerto Rico Government')
+if not os.path.exists(puerto_rico_government_dir):
+    os.mkdir(puerto_rico_government_dir)
+    history('created_dir', dir_location = puerto_rico_government_dir.split('RFPFinder')[1])
+else:pass
+puerto_rico_government_pdf_dir = os.path.join(puerto_rico_government_dir, 'puerto_rico_government_pdfs')
+
+# NY Rev Connect DIRS
+ny_rev_connect_dir = os.path.join(data_dir, 'NY Rev Connect')
+if not os.path.exists(ny_rev_connect_dir):
+    os.mkdir(ny_rev_connect_dir)
+    history('created_dir', dir_location = ny_rev_connect_dir.split('RFPFinder')[1])
+else:pass
+central_hudson_dir = os.path.join(ny_rev_connect_dir, 'Central Hudson')
+conedison_dir = os.path.join(ny_rev_connect_dir, 'ConEdison')
+nationalgrid_dir = os.path.join(ny_rev_connect_dir, 'NationalGrid')
+orange_and_rockland_dir = os.path.join(ny_rev_connect_dir, 'Orange & Rockland')
+nysge_dir = os.path.join(ny_rev_connect_dir, 'NYSGE')
+rge_dir = os.path.join(ny_rev_connect_dir, 'RG & E')
+
+###############################################################################
+###############################################################################
+###############################################################################
 
 # AEP
 ###############################################################################
@@ -301,6 +323,7 @@ def aep_scrape(area_dir, url):
     if not os.path.exists(area_dir):
         os.mkdir(area_dir)
         history('created_dir', dir_location = area_dir.split('RFPFinder')[1])
+        history('aep', aep_type = 'New Area Folder', aep_area = area_dir.split('AEP' + os.sep)[1], aep_info = "Folder was created to store RFP folders and their information for the area")
     else:pass
 
     html = requests.get(url).content
@@ -328,6 +351,7 @@ def aep_scrape(area_dir, url):
                 if not os.path.exists(rfp_dir):
                     os.mkdir(rfp_dir)
                     history('created_dir', dir_location = rfp_dir.split('RFPFinder')[1])
+                    history('aep', aep_type = 'New RFP Folder', aep_area = rfp_dir.split(os.sep)[-1], aep_info = "Folder was created to store information and documents important to the RFP")
                     new_rfp = True
                 else:
                     new_rfp = False
@@ -336,17 +360,30 @@ def aep_scrape(area_dir, url):
 
                 downloaded_files = os.listdir()
 
+                if check_if_new_file('broken_pdf_files.txt'):
+                    with open('broken_pdf_files.txt', 'w') as f:
+                        f.write('A list of PDF file names that could not be downloaded:')
+                        f.write('\n')
+                        f.write('\n')
+                else:pass
+
+                broken_pdf_lines = open('broken_pdf_files.txt', 'r').read().split('\n')
+
                 for pdf_name, pdf_url in pdfs_dict.items():
                     if '(' in pdf_name:
                         pdf_name = pdf_name.split('(')[0]
                     else:pass
                     pdf_name = pdf_name.replace(' ', '_') + '.pdf'
 
-                    if not pdf_name in downloaded_files:
+                    if pdf_name in broken_pdf_lines:pass
+                    else:
+
                         try:
                             download_pdf(pdf_url, pdf_name)
-                        except Exception as e:pass
-                    else:pass
+                        except Exception as e:
+                            with open('broken_pdf_files.txt', 'a') as f:
+                                f.write(pdf_name)
+                                f.write('\n')
 
                 datetype_date_dict = extract_important_dates(rfp_soup)
                 correspondence_email = extract_correspondence_email(rfp_soup)
@@ -419,8 +456,8 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
     pdf_links = [link[21:] if link.startswith('http://www.p3.pr.gov/http://www.p3.pr.gov/') else link for link in pdf_links]
 
     if not os.path.exists(puerto_rico_government_pdf_dir):
-        os.mkdir(puerto_rico_government_dir)
-        history('created_dir', dir_location = puerto_rico_government_dir.split('RFPFinder')[1])
+        os.mkdir(puerto_rico_government_pdf_dir)
+        history('created_dir', dir_location = puerto_rico_government_pdf_dir.split('RFPFinder')[1])
     os.chdir(puerto_rico_government_pdf_dir)
 
     downloaded_files = os.listdir()
@@ -491,8 +528,6 @@ def conedison_scrape(url):
             current_status = cells[1].text
             documents = cells[2].findAll('a')
 
-
-
             root_link = 'https://www.coned.com'
 
             docs = []
@@ -506,32 +541,46 @@ def conedison_scrape(url):
 
             curr_proj = ConEdisonRFP(project_name, current_status, docs)
 
+    now = datetime.now().strftime("%m/%d/%Y")
+
     for rfp in ConEdisonRFP.all_rfps:
 
         rfp_dir = os.path.join(conedison_dir, rfp.project_name)
         if not os.path.exists(rfp_dir):
             os.mkdir(rfp_dir)
             history('created_dir', dir_location = rfp_dir.split('RFPFinder')[1])
+            history('ny_rev_connect', ny_rev_area = 'ConEdison', ny_rev_info = "Folder was created to store information and documents important to the RFP")
         os.chdir(rfp_dir)
 
-        for document in rfp.documents:
+        if not check_if_new_file('info.txt'):
 
+            with open('info.txt', 'w') as f:
+
+                f.write("Project Name: {0}".format(rfp.project_name))
+                f.write('\n')
+                f.write("Current status as of {0}: {1}".format(now, rfp.current_status))
+        else:pass
+
+        for document in rfp.documents:
+            name = document.document_name.replace(' ', '_') + '.pdf'
             try:
-                name = document.document_name.replace(' ', '_') + '.pdf'
                 download_pdf(document.url, name)
             except Exception as e:
 
 
                 # Downloading excel files as pdfs right now... needs chanegd
                 print(e)
-
-
-
         os.chdir(conedison_dir)
-
 
     return
 
+def nationalgrid_scrape(url):
+
+
+
+
+
+    return
 
 
 def ny_rev_connect_scrape(area_dir, url):
@@ -539,6 +588,7 @@ def ny_rev_connect_scrape(area_dir, url):
     if not os.path.exists(area_dir):
         os.mkdir(area_dir)
         history('created_dir', dir_location = area_dir.split('RFPFinder')[1])
+        history('ny_rev_connect', ny_rev_area = area_dir.split(os.sep)[-1], ny_rev_info = "Folder was created to store RFP folders and their information for the area")
     os.chdir(area_dir)
 
     if area_dir == central_hudson_dir:

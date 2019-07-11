@@ -33,9 +33,9 @@ if __name__ == '__main__':
     history()
 
     print('\n')
-    print('------------------------')
-    print('Running scrapers')
-    print('------------------------')
+    print('--------------------------')
+    print('     Running scrapers')
+    print('--------------------------')
 
     conf = configparser.ConfigParser()
     config_file = os.path.join(os.path.dirname(__file__), "config.ini")
