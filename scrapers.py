@@ -580,6 +580,24 @@ def nationalgrid_scrape(url):
 
 
 
+
+    #  NOTHING
+
+
+
+
+
+
+
+    return
+
+def orange_and_rockland_scrape(url):
+
+
+
+
+
+
     return
 
 
