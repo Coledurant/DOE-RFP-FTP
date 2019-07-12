@@ -70,11 +70,11 @@ def download_pdf(download_url, document_name):
         None - Just downloads the pdf
     '''
 
+    assert document_name.endswith('.pdf'), 'Document name did not end with .pdf'
+
     if check_if_new_file(document_name):
         response = urlopen(download_url)
-        if document_name[-4:] != ".pdf":
-            raise ValueError('document_name {0} did not end in .pdf'.format(document_name))
-        else:pass
+
         file = open(document_name, 'wb')
         file.write(response.read())
         file.close()
@@ -91,12 +91,15 @@ def download_excel(download_url, document_name):
 
     assert document_name.endswith('.xlsx'), 'Document name did not end with .xlsx'
 
-    urllib.request.urlretrieve(download_url, document_name)
+    if check_if_new_file(document_name):
 
-    inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
-    file_path = inf[1]
+        urllib.request.urlretrieve(download_url, document_name)
 
-    history('excel_download', excel_name = document_name, file_path = file_path)
+        inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
+        file_path = inf[1]
+
+        history('excel_download', excel_name = document_name, file_path = file_path)
+    else:pass
 
 def history(change_type='run', **kwargs):
 
@@ -230,6 +233,13 @@ nationalgrid_dir = os.path.join(ny_rev_connect_dir, 'NationalGrid')
 orange_and_rockland_dir = os.path.join(ny_rev_connect_dir, 'Orange & Rockland')
 nysge_dir = os.path.join(ny_rev_connect_dir, 'NYSGE')
 rge_dir = os.path.join(ny_rev_connect_dir, 'RG & E')
+
+# San Diego Gas and Electric
+san_diego_gas_and_electric_dir = os.path.join(data_dir, 'San Diego Gas and Electric')
+if not os.path.exists(san_diego_gas_and_electric_dir):
+    os.mkdir(san_diego_gas_and_electric_dir)
+    history('created_dir', dir_location = san_diego_gas_and_electric_dir.split('RFPFinder')[1])
+else:pass
 
 ###############################################################################
 ###############################################################################
@@ -504,8 +514,6 @@ def puerto_rico_government(url = conf.get('puerto_rico_government', 'puerto_rico
 
 def central_hudson_scrape(url):
 
-    history('ny_rev_connect', ny_rev_area = 'Central Hudson', ny_rev_info = 'Saved Non Wire Alternative Opportunities Excel')
-
     html = requests.get(url).content
     soup = BeautifulSoup(html, 'lxml')
 
@@ -524,9 +532,29 @@ def central_hudson_scrape(url):
 
     non_wires_alternative_opps_frame = pd.DataFrame(rows, columns=title_row)
 
-    writer = ExcelWriter('Non Wires Alternative Opportunities.xlsx')
-    non_wires_alternative_opps_frame.to_excel(writer)
-    writer.save()
+    if check_if_new_file('Non Wires Alternative Opportunities.xlsx'):
+
+        writer = ExcelWriter('Non Wires Alternative Opportunities.xlsx')
+        non_wires_alternative_opps_frame.to_excel(writer)
+        writer.save()
+
+        history('ny_rev_connect', ny_rev_area = 'Central Hudson', ny_rev_info = 'Created Non Wire Alternative Opportunities Excel')
+
+    else:
+
+        new_names = list(non_wires_alternative_opps_frame['Project Name/Description'])
+
+        old_file_names = list(pd.read_excel('Non Wires Alternative Opportunities.xlsx')['Project Name/Description'])
+
+        if old_file_names == new_names:pass
+        else:
+
+            writer = ExcelWriter('Non Wires Alternative Opportunities.xlsx')
+            non_wires_alternative_opps_frame.to_excel(writer)
+            writer.save()
+
+            history('ny_rev_connect', ny_rev_area = 'Central Hudson', ny_rev_info = 'Updated Non Wire Alternative Opportunities Excel')
+
 
 def conedison_scrape(url):
 
@@ -537,7 +565,6 @@ def conedison_scrape(url):
 
     table_head = table.findAll('th')
     table_rows = table.find_all('tr')
-
 
     for row in table_rows:
 
@@ -573,7 +600,7 @@ def conedison_scrape(url):
             history('ny_rev_connect', ny_rev_area = 'ConEdison', ny_rev_info = "Folder was created to store information and documents important to the RFP")
         os.chdir(rfp_dir)
 
-        if not check_if_new_file('info.txt'):
+        if check_if_new_file('info.txt'):
 
             with open('info.txt', 'w') as f:
 
@@ -597,7 +624,68 @@ def conedison_scrape(url):
 
 def nationalgrid_scrape(url):
 
-    print('NATIONL GRID SCRAPER NEEDS BUILT')
+    soup_path = os.path.join(nationalgrid_dir, 'DO NOT EDIT (soup files -- test env only)')
+
+    if not os.path.exists(soup_path):
+        os.mkdir(soup_path)
+        history('created_dir', dir_location = soup_path.split('RFPFinder')[1])
+        history('ny_rev_connect', ny_rev_area = nationalgrid_dir.split(os.sep)[-1], ny_rev_info = "Created folder to store soup objects to compare later")
+    os.chdir(soup_path)
+
+    if check_if_new_file('DO_NOT_EDIT_THIS_FILE_first_national_grid_soup_test.txt'):
+
+        was_change = False
+        html = requests.get(url).content
+
+        history('ny_rev_connect', ny_rev_area = nationalgrid_dir.split(os.sep)[-1], ny_rev_info = "First national grid soup file created")
+
+        with open('DO_NOT_EDIT_THIS_FILE_first_national_grid_soup_test.txt', 'wb') as f:
+
+            f.write(html)
+
+    else:
+
+        with open('DO_NOT_EDIT_THIS_FILE_first_national_grid_soup_test.txt', 'rb') as f:
+
+            last = BeautifulSoup(f, 'lxml')
+
+        html = requests.get(url).content
+
+        with open('DO_NOT_EDIT_THIS_FILE_current_national_grid_soup_test.txt', 'wb') as f:
+
+            f.write(html)
+
+        with open('DO_NOT_EDIT_THIS_FILE_current_national_grid_soup_test.txt', 'rb') as f:
+
+            current = BeautifulSoup(f, 'lxml')
+
+        if last == current:
+
+            was_change = False
+
+            with open('DO_NOT_EDIT_THIS_FILE_first_national_grid_soup_test.txt', 'wb') as f:
+
+                f.write(html)
+
+        else:
+
+            was_change = True
+            change_alert = "**************************************************\n**************************************************\nTHERE WAS A CHANGE TO THE NATIONAL GRID WEBPAGE\n**************************************************\n**************************************************\n"
+            print(change_alert)
+
+    os.chdir(nationalgrid_dir)
+
+    if was_change == True:
+
+        now = datetime.now().strftime("%m/%d/%Y")
+        history('ny_rev_connect', ny_rev_area = nationalgrid_dir.split(os.sep)[-1], ny_rev_info = "NATIONAL GRID WEBSITE UPDATED")
+
+        with open("CHANGES_FOUND.txt", 'w') as f:
+
+            f.write(now)
+            f.write('\n\n')
+            f.write(change_alert)
+
 
     return
 
@@ -605,64 +693,106 @@ def orange_and_rockland_scrape(url, area_dir):
 
     html = requests.get(url).content
     soup = BeautifulSoup(html, 'lxml')
-    table = soup.findAll('table')
+    table = soup.findAll('table')[1]
     table_rows = table.findAll('tr')
 
 
     root_download_link = 'https://www.oru.com'
 
-    for num_row, row in enumerate(table_rows):
-        print(num_row)
-        if num_row == 0:
-            row = [str(s.text) for s in row.findAll('strong')]
+    for row in table_rows[1:]:
+
+        cells_text = [cell.text for cell in row.findAll('td')[:-1]]
+
+        project_name, project_type, project_size, rfp_status = cells_text
+
+        project_name = project_name.split('\n')[0]
+
+        project_name_dir = os.path.join(orange_and_rockland_dir, project_name)
+
+        if os.path.exists(project_name_dir):pass
         else:
-            print(row)
-            cells_text = [cell.text for cell in row.findAll('td')[:-1]]
+            os.mkdir(project_name_dir)
+            history('created_dir', dir_location = project_name_dir.split('RFPFinder')[1])
+            history('ny_rev_connect', ny_rev_area = area_dir.split(os.sep)[-1], ny_rev_info = "New RFP folder added: {0}".format(project_name))
 
-            print(cells_text)
+        os.chdir(project_name_dir)
 
-            project_name, project_type, project_size, rfp_status = cells_text
+        if check_if_new_file('info.txt'):
 
-            or_rfp_dirs = os.listdir()
+            with open('info.txt', 'w') as f:
 
-            project_name_dir = os.path.join(area_dir, project_name)
+                f.write("Project Name: {0}".format(project_name))
+                f.write('\n')
+                f.write("Project Type: {0}".format(project_type))
+                f.write('\n')
+                f.write("Project Size: {0}".format(project_size))
+                f.write('\n')
+                f.write("RFP Status: {0}".format(rfp_status))
+                f.write('\n')
+        else:pass
 
-            if project_name_dir not in or_rfp_dirs:
 
-                os.mkdir(project_name_dir)
-                history('created_dir', dir_location = project_name_dir.split('RFPFinder')[1])
-                history('ny_rev_connect', ny_rev_area = area_dir.split(os.sep)[-1], ny_rev_info = "New RFP folder added: {0}".format(project_name))
+        documents_cell = row.findAll('td')[-1]
+        document_links = [a for a in documents_cell.findAll('a')]
+        pdf_links = [a for a in document_links if '(xls)' not in a.text]
+        excel_links = [a for a in document_links if '(xls)' in a.text]
 
-            os.chdir(project_name_dir)
+        for pdf in pdf_links:
 
+            new_url = root_download_link + pdf['href']
+            pdf_text = pdf.text.replace(' ', '_') + '.pdf'
+            download_pdf(new_url, pdf_text)
 
-            documents_cell = row.findAll('td')[-1]
-            document_links = [a for a in documents_cell.findAll('a')]
-            pdf_links = [a for a in document_links if '(xls)' not in a.text]
-            excel_links = [a for a in document_links if '(xls)' in a.text]
+        for excel in excel_links:
 
-            for pdf in pdf_links:
+            new_url = root_download_link + excel['href']
+            excel_text = excel.text.replace(' ', '_') + '.xlsx'
+            download_excel(new_url, excel_text)
 
-                new_url = root_download_link + pdf['href']
-                pdf_text = pdf.text.replace(' ', '_')
+        os.chdir(conedison_dir)
 
-                if check_if_new_file(pdf_text):
-                    downlaod_pdf(new_url, pdf_text)
-                else:pass
+    return
 
-            for excel in pdf_links:
+def nysge_rge_scrape(url, area_dir):
 
-                new_url = root_download_link + excel['href']
-                excel_text = excel.text.replace(' ', '_')
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
+    table = soup.find('table')
+    table_rows = table.findAll('tr')[1:]
 
-                if check_if_new_file(excel_text):
-                    download_excel(new_url, excel_text)
-                else:pass
+    for row in table_rows:
 
-            os.chdir(area_dir)
+        transmission_distribution, project_name, time_of_need, estimated_release_timing = [r.text.strip() for r in row.findAll('td')]
 
-        return
+        project_name = project_name.replace("/", '')
 
+        project_name_dir = os.path.join(area_dir, project_name)
+
+        if os.path.exists(project_name_dir):pass
+        else:
+            os.mkdir(project_name_dir)
+            history('created_dir', dir_location = project_name_dir.split('RFPFinder')[1])
+            history('ny_rev_connect', ny_rev_area = area_dir.split(os.sep)[-1], ny_rev_info = "New RFP folder added: {0}".format(project_name))
+
+        os.chdir(project_name_dir)
+
+        if check_if_new_file('info.txt'):
+
+            with open('info.txt', 'w') as f:
+
+                f.write("Transmission / Distribution: {0}".format(transmission_distribution))
+                f.write('\n')
+                f.write("Project Name: {0}".format(project_name))
+                f.write('\n')
+                f.write("Time of Need: {0}".format(time_of_need))
+                f.write('\n')
+                f.write("Estimated Release Timing: {0}".format(estimated_release_timing))
+                f.write('\n')
+        else:pass
+
+        os.chdir(area_dir)
+
+    return
 
 def ny_rev_connect_scrape(area_dir, url):
 
@@ -680,16 +810,11 @@ def ny_rev_connect_scrape(area_dir, url):
         nationalgrid_scrape(url)
     elif area_dir == orange_and_rockland_dir:
         orange_and_rockland_scrape(url, area_dir)
-
-
-
-
-
+    elif area_dir in [nysge_dir, rge_dir]:
+        nysge_rge_scrape(url, area_dir)
 
     os.chdir(curr_dir)
     return
-
-
 
 def ny_rev_connect():
     path_url_dict = {
@@ -704,9 +829,19 @@ def ny_rev_connect():
     for area_dir, url in path_url_dict.items():
         ny_rev_connect_scrape(area_dir, url)
 
+    return
+
+#
+###############################################################################
+
+def san_diego_gas_and_electric_scrape():
 
 
-    return None
+
+
+
+    return
+
 
 # Main
 ###############################################################################
@@ -718,6 +853,9 @@ def main():
     print('   - Government of Puerto Rico finished')
     ny_rev_connect()
     print('   - NY Rev Connect finished')
+    duke_energy_scrape()
+    print('   - Duke Energy finished')
+    san_diego_gas_and_electric_scrape()
 
 ###############################################################################
 ###############################################################################
