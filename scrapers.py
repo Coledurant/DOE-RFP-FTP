@@ -87,6 +87,17 @@ def download_pdf(download_url, document_name):
 
     return
 
+def download_excel(download_url, document_name):
+
+    assert document_name.endswith('.xlsx'), 'Document name did not end with .xlsx'
+
+    urllib.request.urlretrieve(download_url, document_name)
+
+    inf = os.getcwd().split('RFPFinder' + os.sep + 'data')
+    file_path = inf[1]
+
+    history('excel_download', excel_name = document_name, file_path = file_path)
+
 def history(change_type='run', **kwargs):
 
     '''
@@ -158,6 +169,16 @@ def history(change_type='run', **kwargs):
 
         # Now, Change Type, Area Location, Information
         sheet.append([now, aep_type, aep_area, aep_info])
+
+    elif change_type == 'excel_download':
+
+        excel_name = kwargs.get('excel_name')
+        file_path = kwargs.get('file_path')
+
+        sheet = book['Excel Downloads']
+
+        # Time, Change Type, PDF Name, Location
+        sheet.append([now, 'Excel Download', excel_name, file_path])
 
     book.save('history.xlsx')
     os.chdir(begin_dir)
@@ -576,29 +597,71 @@ def conedison_scrape(url):
 
 def nationalgrid_scrape(url):
 
-
-
-
-
-
-    #  NOTHING
-
-
-
-
-
-
+    print('NATIONL GRID SCRAPER NEEDS BUILT')
 
     return
 
-def orange_and_rockland_scrape(url):
+def orange_and_rockland_scrape(url, area_dir):
+
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
+    table = soup.findAll('table')
+    table_rows = table.findAll('tr')
 
 
+    root_download_link = 'https://www.oru.com'
+
+    for num_row, row in enumerate(table_rows):
+        print(num_row)
+        if num_row == 0:
+            row = [str(s.text) for s in row.findAll('strong')]
+        else:
+            print(row)
+            cells_text = [cell.text for cell in row.findAll('td')[:-1]]
+
+            print(cells_text)
+
+            project_name, project_type, project_size, rfp_status = cells_text
+
+            or_rfp_dirs = os.listdir()
+
+            project_name_dir = os.path.join(area_dir, project_name)
+
+            if project_name_dir not in or_rfp_dirs:
+
+                os.mkdir(project_name_dir)
+                history('created_dir', dir_location = project_name_dir.split('RFPFinder')[1])
+                history('ny_rev_connect', ny_rev_area = area_dir.split(os.sep)[-1], ny_rev_info = "New RFP folder added: {0}".format(project_name))
+
+            os.chdir(project_name_dir)
 
 
+            documents_cell = row.findAll('td')[-1]
+            document_links = [a for a in documents_cell.findAll('a')]
+            pdf_links = [a for a in document_links if '(xls)' not in a.text]
+            excel_links = [a for a in document_links if '(xls)' in a.text]
 
+            for pdf in pdf_links:
 
-    return
+                new_url = root_download_link + pdf['href']
+                pdf_text = pdf.text.replace(' ', '_')
+
+                if check_if_new_file(pdf_text):
+                    downlaod_pdf(new_url, pdf_text)
+                else:pass
+
+            for excel in pdf_links:
+
+                new_url = root_download_link + excel['href']
+                excel_text = excel.text.replace(' ', '_')
+
+                if check_if_new_file(excel_text):
+                    download_excel(new_url, excel_text)
+                else:pass
+
+            os.chdir(area_dir)
+
+        return
 
 
 def ny_rev_connect_scrape(area_dir, url):
@@ -613,6 +676,11 @@ def ny_rev_connect_scrape(area_dir, url):
         central_hudson_scrape(url)
     elif area_dir == conedison_dir:
         conedison_scrape(url)
+    elif area_dir == nationalgrid_dir:
+        nationalgrid_scrape(url)
+    elif area_dir == orange_and_rockland_dir:
+        orange_and_rockland_scrape(url, area_dir)
+
 
 
 
