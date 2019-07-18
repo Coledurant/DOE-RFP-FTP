@@ -853,9 +853,8 @@ def main():
     print('   - Government of Puerto Rico finished')
     ny_rev_connect()
     print('   - NY Rev Connect finished')
-    duke_energy_scrape()
-    print('   - Duke Energy finished')
     san_diego_gas_and_electric_scrape()
+    print('   - San Diego Gas and Electric finished')
 
 ###############################################################################
 ###############################################################################

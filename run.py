@@ -28,7 +28,7 @@ except ImportError:
 
 
 
-if __name__ == '__main__':
+def run():
 
     history()
 
@@ -109,3 +109,7 @@ if __name__ == '__main__':
 
     # SCRAPERS
     main()
+
+if __name__ == '__main__':
+
+    run()
