@@ -79,13 +79,13 @@ def index():
 
     try:
         last_run_row = pd.read_excel(os.path.join(DATA_DIR, 'history.xlsx'), 'Runs').iloc[-1]
-        last_run = last_run_row['Time Run'].strftime("Last Run: %m/%d/%y at %H:%M")
+        last_run = last_run_row['Time Run']
     except IndexError:
         last_run = 'Last run: Never'
 
     template_data['last_run'] = last_run
 
-    dropdown_list = ['All Files', 'Recent Folders', 'Update Files']
+    dropdown_list = ['All Files', 'Dashboard', 'Recent Downloads', 'Run History', 'Update Files']
     template_data['dropdown_list'] = dropdown_list
 
     if request.method == 'POST':
@@ -95,8 +95,47 @@ def index():
             selection = request.form.get('dropdown-selection')
             template_data['selection'] = selection
 
-            if selection == 'Update Files':
+            if selection == 'Dashboard':
 
+                rfp_areas = [rfp for rfp in data_dir_structure.keys() if rfp != 'history.xlsx']
+                template_data['rfp_areas'] = rfp_areas
+
+            elif selection == 'Recent Downloads':
+
+                pdf_downloads = pd.read_excel('data/History.xlsx', 'PDF Downloads')
+                most_recent_pdfs_first_df = pdf_downloads.sort_values('Time Saved', ascending=False)
+                most_recent_pdfs_first_df.drop('Change Type', axis=1, inplace=True)
+                #[time_val, pdf_name, location]
+                pdf_recent_rows = []
+                pdf_old_rows = []
+                for row in most_recent_pdfs_first_df.iterrows():
+                    if row[1][0] > last_run:
+                        pdf_recent_rows.append([row[1][0], row[1][1], row[1][2]])
+                    else:
+                        pdf_old_rows.append([row[1][0], row[1][1], row[1][2]])
+                template_data['pdf_recent_rows'] = pdf_recent_rows
+                template_data['len_pdf_recent_rows'] = len(pdf_recent_rows)
+                template_data['pdf_old_rows'] = set(pdf_old_rows)
+                template_data['len_pdf_old_rows'] = len(pdf_old_rows)
+
+                excel_downloads = pd.read_excel('data/History.xlsx', 'Excel Downloads')
+                most_recent_excel_first_df = excel_downloads.sort_values('Time Saved', ascending=False)
+                most_recent_excel_first_df.drop('Change Type', axis=1, inplace=True)
+                #[time_val, pdf_name, location]
+                excel_recent_rows = []
+                excel_old_rows = []
+                for row in most_recent_excel_first_df.iterrows():
+                    if row[1][0] > last_run:
+                        excel_recent_rows.append([row[1][0], row[1][1], row[1][2]])
+                    else:
+                        excel_old_rows.append([row[1][0], row[1][1], row[1][2]])
+                template_data['excel_recent_rows'] = set(excel_recent_rows)
+                template_data['len_excel_recent_rows'] = len(excel_recent_rows)
+
+
+
+
+            elif selection == 'Update Files':
                 run()
 
 

@@ -14,23 +14,33 @@
       border: none;
       cursor: pointer;
     }
+    .recent_download {
+      font-weight:bold
+    }
+    .recent_downloads_div {
+      padding-top:2%;
+      width: 90%;
+      margin: auto;
+    }
+    .pdf_recent_downloads {
+      width: 90%;
+      margin:auto;
+    }
+    .old_downloads_div {
+      padding-top:2%;
+      width: 90%;
+      margin: auto;
+    }
+    .excel_recent_downloads {
+      width: 90%;
+      margin:auto;
+    }
   </style>
 </head>
 <body style="padding: 3em 0; background-color:white">
 <section class="container max-width-sm">
   <div class="text-component text-center">
     <h1>RFP Finder</h1>
-    <!-- <form method="POST" action="/">
-  		<input class="update-button" type="submit" name="update-files" value="Update Files">
-  	</form>
-    <form class="" action="/" method="POST" id="dropdown-selection" name="dropdown-selection" enctype="multipart/form-data">
-      <select id="dropdown-selection" onchange="SubmitForm('dropdown-selection')">
-        {% for each in dropdown_list %}
-          <option value="{{each}}">{{each}}</option>
-        {% endfor %}
-      </select>
-      <noscript><input type="submit" value="Submit" name="dropdown-selection"></noscript>
-    </form> -->
 
     <form class="" action="/" method="POST" id="dropdown-selection" name="dropdown-selection" enctype="multipart/form-data">
       <select name="dropdown-selection" id="dropdown-selection" onchange="SubmitForm('dropdown-selection')">
@@ -41,11 +51,10 @@
       <noscript><input type="submit" value="Submit" name="dropdown-selection"></noscript>
     </form>
   </div>
-
+  <br>
+  <p style="text-align:center;">{{last_run.strftime("Last Run: %m/%d/%y at %H:%M")}}</p>
+  <br>
     {% if selection == 'All Files' %}
-      <br>
-      <p style="text-align:center;">{{last_run}}</p>
-      <br>
       {% if data_dir_len != 0 %}
           <ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg">
             {% for key,parent_dict_item in data_dir_structure.items() %}
@@ -105,10 +114,60 @@
         <p>No data downloaded yet...</p>
         <p>Press the button above and wait for download to complete</p>
       {% endif %}
-    {% elif selection == 'Recent Folders' %}
-      <p>Recent Folders</p>
+
+    {% elif selection == 'Dashboard' %}
+
+      <select>
+        {% for rfp in rfp_areas %}
+          <option value="{{rfp}}">{{rfp}}</option>
+        {% endfor %}
+      </select>
+
+    {% elif selection == 'Recent Downloads' %}
+      <h1>Downloads From Last Run</h1>
+      <div class="recent_downloads_div">
+        {% if len_pdf_recent_rows > 0 %}
+          <h4>PDF Files</h4>
+          {% for row in pdf_recent_rows %}
+            <div class="pdf_recent_downloads">
+                <p class="recent_download"><a class="" href="/download/{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
+            </div>
+          {% endfor %}
+        {% else %}
+        {% endif %}
+        {% if len_excel_recent_rows > 0 %}
+          <h4>Excel Files</h4>
+          {% for row in excel_recent_rows %}
+            <div class="excel_recent_downloads">
+                <p class="recent_download"><a class="" href="/download/{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
+            </div>
+          {% endfor %}
+        {% else %}
+        {% endif %}
+      </div>
+      <br>
+
+      <ul style="background-color: white;color: black;padding:2%;" class="cd-accordion margin-top-lg margin-bottom-lg">
+        <li style="background-color: white;color: black;" class="cd-accordion__item cd-accordion__item--has-children">
+          <input style="background-color: white;color: black;" class="cd-accordion__input" type="checkbox" name ="group-1" id="group-1">
+          <label style="background-color: white;color: black;" class="cd-accordion__label cd-accordion__label--icon-folder" for="group-1"><span>Old Downloads</span></label>
+          <ul style="background-color: white;color: black;" class="cd-accordion__sub cd-accordion__sub--l1">
+            {% if len_pdf_old_rows > 0 %}
+              {% for row in pdf_old_rows %}
+                <li style="background-color: white;color: black;" class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span>{{row[2]}}\{{row[1]}}</span></a></li>
+              {% endfor %}
+            {% else %}
+            {% endif %}
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+
     {% elif selection == 'Update Files' %}
-      <p>Update</p>
+      <p>Update Complete</p>
     {% else %}
     {% endif %}
 
