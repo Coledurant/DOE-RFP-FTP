@@ -1,0 +1,546 @@
+  
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png?v=OmJ605EadX">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png?v=OmJ605EadX">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png?v=OmJ605EadX">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json" crossorigin="use-credentials">
+  <link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg?v=OmJ605EadX" color="#00148c">
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico?v=OmJ605EadX">
+  <meta name="apple-mobile-web-app-title" content="National Grid">
+  <meta name="application-name" content="National Grid">
+  <meta name="msapplication-TileColor" content="#00148c">
+  <meta name="theme-color" content="#00148c">
+    
+  
+  <title>Upcoming RFPs | Working With Us | New Energy Solutions | National Grid</title>
+
+
+<meta name="title" content="Upcoming RFPs | Working With Us | New Energy Solutions | National Grid"/>
+<meta name="description" content="Non-wires alternatives (NWA) provide an opportunity to help reduce customers’ electric bills by utilizing Distributed Energy Resources to maintain or even improve reliability and defer capital infrastructure investments. The New Energy Solutions team at National Grid, in conjunction with our Distribution and Transmission Planning and other teams, have identified opportunities that may create such change in a manner that helps reduce emissions, lower customer bills, and maintain reliability."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content=""/>
+
+  
+    
+  <title>National Grid - Here with you. Here for you.</title>
+  
+  <link rel="stylesheet" href="/assets/css/contentWeb.css" />
+  <script defer src="/assets/js/contentWeb.js"></script>
+  <script src="https://searchg2-assets.crownpeak.net/crownpeak.searchg2-1.0.0.min.js"></script>
+  
+  <!-- Google Tag Manager - Install in Head -->
+  <script>
+  // GTM-MZBX5BL - new global container
+  (function(w,d,s,l,i,j,f,dl,k,q){
+    w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});f=d.getElementsByTagName(s)[0];
+    k=i.length;q='//www.googletagmanager.com/gtm.js?id=@&l='+(l||'dataLayer');
+    while(k--){j=d.createElement(s);j.async=!0;j.src=q.replace('@',i[k]);f.parentNode.insertBefore(j,f);}
+  }(window,document,'script','dataLayer',['GTM-MZBX5BL', 'GTM-NHFBDX']));
+  </script>
+  <!-- End Google Tag Manager - Install in Head -->	
+  
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) - Install in Body -->
+  <noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZBX5BL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHFBDX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) - Install in Body -->
+  <!-- Used for svg icons : do not edit, icons dynamically added -->
+<div
+  class="icon-sprite"
+  style="height: 0; width: 0; position: absolute; visibility: hidden"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 0h27v2.014H0V0zm0 8.56h27v2.013H0V8.56z" id="menu-tablet-a"/><path d="M0 0h27v2.014H0V0zm0 8.56h27v2.013H0V8.56z" id="menu-a"/></defs><symbol id="logo" viewBox="0 0 700 145"><path fill="#00148C" d="M173.647 44.82v7.203h-14.208v47.418c.012 5.49.863 8.705 6.906 9.116a64.28 64.28 0 0 0 7.302-.414v7.35c-2.574 0-5.008.275-7.582.275-8.372 0-12.703-2.072-14.343-7.964a28.352 28.352 0 0 1-.023-.084c-.566-2.078-.802-4.626-.766-7.72V52.023h-.005v-.014H138.75v-7.19h12.183V23.75h8.506l-.189 21.063h.189v.008h14.208v-.008h-14.208zm263.036-26.917v-.01h8.521v97.039h-.016v.014h-8.505V17.903zM289.002 44.819v-.007h8.52v.008h.002v12.09h.269a18.804 18.804 0 0 1 2.6-4.741c4.304-5.753 11.831-9.392 19.719-9.392 19.61 0 25.56 10.331 25.56 27.047v45.121h-8.517V71.181c0-3.735-.374-7.184-1.299-10.168-.01-.036-.022-.071-.033-.106-2.085-6.617-6.905-10.92-16.396-10.92-13.532 0-21.634 10.325-21.903 24.05v40.908h-.002l-8.52.001h-.008V44.819H289zm-280.48 0V56.91h.27c1.223-3.318 3.415-6.216 6.226-8.51l.025-.02c4.32-3.514 10.095-5.604 16.06-5.604 19.61 0 25.561 10.332 25.561 27.048v45.122h-8.523V71.18c0-12.088-3.922-21.194-17.708-21.194-13.532 0-21.642 10.327-21.912 24.05v40.91H.002V44.812h8.52v.008zM608.377 0l13.914 13.966-13.914 13.974-13.895-13.974L608.377 0zm-9.425 114.919v-72.77h18.907v72.77h-18.907zM493.069 99.326c12.854 0 16.095-11.023 16.095-20.948 0-11.674-5.68-21.19-16.235-21.19-7.028 0-14.878 5.171-14.878 22.021 0 9.237 3.794 20.117 15.018 20.117zm34.894-56.684v68.5c0 12.511-.954 33.31-36.38 33.31-14.88 0-30.561-6.392-31.376-21.753h20.55c.829 3.67 2.305 7.33 13.263 7.33 10.139 0 15.002-4.885 15.002-16.579v-8.69l-.263-.276c-3.096 5.58-7.847 10.87-19.197 10.87-17.307 0-30.98-12.093-30.98-37.375 0-25.009 14.07-37.243 29.88-37.243 13.4 0 18.805 7.888 21.107 12.644h.273V42.642h18.12zm16.229.001H562.3v12.512h.283c3.922-7.348 8.245-14.42 19.746-14.42 1.208 0 2.439.138 3.647.272v19.306c-1.613-.27-3.647-.27-5.411-.27-14.732 0-17.448 9.236-17.448 17.26v37.646h-18.926V42.643zm120.924 58.585c12.037 0 16.772-10.064 16.772-20.795 0-11.558-3.25-23.242-16.23-23.242-12.038 0-16.09 10.736-16.09 22.149 0 8.574 3.367 21.888 15.548 21.888zM700 114.947h-18.52v-9.102h-.277c-4.6 8.164-12.98 11.008-20.827 11.008-21.347 0-30.29-19.02-30.29-38.873 0-25.011 14.058-37.24 29.886-37.24 12.175 0 17.852 6.664 20.825 11.284h.262V17.359H700v97.588zM117.383 76.62h-.263c-1.092 2.05-4.878 2.717-7.162 3.127-14.484 2.583-32.47 2.451-32.47 16.171 0 8.568 7.59 13.863 15.555 13.863 12.977 0 24.477-8.289 24.34-22.013V76.62zM71.951 66.291c.8-16.44 12.3-23.516 28.26-23.516 12.308 0 25.693 3.806 25.693 22.57v37.232c0 3.266 1.615 5.168 5.01 5.168.943 0 2.023-.269 2.705-.549v7.204c-1.902.413-3.25.545-5.55.545-8.649 0-10-4.882-10-12.22h-.273c-5.96 9.093-12.038 14.27-25.424 14.27-12.854 0-23.414-6.394-23.414-20.527 0-19.713 19.086-20.388 37.471-22.563 7.038-.813 10.954-1.77 10.954-9.513 0-11.553-8.255-14.417-18.258-14.417-10.544 0-18.385 4.901-18.665 16.316h-8.509zm117.116-34.654v-13.73h8.526v13.73h-8.526zm-.011 83.309V44.812h8.539v70.134h-8.539zm29.898-35.061c0 14.948 8.114 29.899 24.48 29.899 16.357 0 24.474-14.951 24.474-29.899 0-14.955-8.117-29.911-24.474-29.911-16.366 0-24.48 14.956-24.48 29.911zm57.466 0c0 20.117-11.623 37.109-32.986 37.109-21.378 0-33.002-16.992-33.002-37.109 0-20.119 11.624-37.112 33.002-37.112 21.363 0 32.986 16.993 32.986 37.112zm129.96-3.265h-.267c-1.086 2.05-4.87 2.717-7.169 3.127-14.473 2.583-32.449 2.451-32.449 16.171 0 8.568 7.575 13.863 15.554 13.863 12.976 0 24.472-8.289 24.33-22.013V76.62zM360.94 66.291c.83-16.44 12.31-23.516 28.262-23.516 12.313 0 25.695 3.806 25.695 22.57v37.232c0 3.266 1.625 5.168 5.007 5.168.95 0 2.031-.269 2.715-.549v7.204c-1.9.413-3.274.545-5.555.545-8.664 0-10.01-4.882-10.01-12.22h-.272c-5.947 9.093-12.027 14.27-25.422 14.27-12.835 0-23.389-6.394-23.389-20.527 0-19.713 19.062-20.388 37.457-22.563 7.031-.813 10.95-1.77 10.95-9.513 0-11.553-8.256-14.417-18.265-14.417-10.532 0-18.38 4.901-18.652 16.316h-8.52z"/></symbol><symbol id="account-logged-in" viewBox="0 0 22 22"><g stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linejoin="round"><g transform="translate(9 10)" stroke-linecap="round"><circle cx="6.042" cy="6.042" r="5.5"/><path d="M8.493 4.443L5.83 7.993a.69.69 0 0 1-1.037.075L3.418 6.693" stroke-width="2"/></g><circle stroke-width="2" stroke-linecap="round" cx="6.058" cy="3.837" r="3.433"/><path d="M.404 15.75a5.654 5.654 0 0 1 9.05-4.521" stroke-linecap="square"/></g></symbol><symbol id="account" viewBox="0 0 21 22"><g fill="none" fill-rule="evenodd" stroke-linejoin="round"><circle stroke-width="2" stroke-linecap="round" cx="10.882" cy="5.706" r="3.706" stroke="currentColor"/><path d="M4 20c0-4.093 3.081-7.412 6.882-7.412 3.801 0 6.883 3.319 6.883 7.412"/></g></symbol><symbol id="business" viewBox="0 0 18 15"><g fill="none" fill-rule="evenodd" stroke="#00aff0" stroke-linejoin="round"><path d="M16.667 13.667a.667.667 0 0 1-.667.666H2a.667.667 0 0 1-.667-.666V4.333c0-.368.299-.666.667-.666h14c.368 0 .667.298.667.666z"/><g stroke-width=".5"><path d="M6.333 3.667l.334-2.334C6.667 1.15 6.816 1 7 1h4c.184 0 .333.15.333.333l.334 2.334M4 6.335h10M4 9.001h10M4 11.668h10"/></g></g></symbol><symbol id="close" viewBox="0 0 12 12"><path d="M4.959 5.758L0 .799.8 0l4.958 4.959L10.716 0l.8.8-4.959 4.958 4.959 4.958-.8.8-4.958-4.959-4.959 4.959-.799-.8z" fill-rule="nonzero"/></symbol><symbol id="electric" viewBox="0 0 12 15"><path d="M10.6 5.699l-6 8.4 1.2-5.4H1l6-8.4-1.2 5.4z" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="gas-electric" viewBox="0 0 18 17"><g stroke="#00AFF0" fill="none" fill-rule="evenodd" stroke-linejoin="round"><path d="M4.834 4.6c.11.76.335 2.16-.484 3.107-.117-.177-.527-.991-.527-.991-.41.407-.721.903-.908 1.45a2.021 2.021 0 1 0 3.994.62A4.164 4.164 0 0 0 4.834 4.6z" stroke-width=".5"/><path d="M3.28 1.09c2.595 0 5.514 3.892 5.514 7.46a3.893 3.893 0 0 1-7.785 0 6.038 6.038 0 0 1 1.622-3.893l.649.65c.649-.325 0-4.218 0-4.218z"/><path stroke-linecap="round" d="M16.839 10.106l-4.721 6.608.944-4.248H9.286l4.72-6.609-.944 4.249z"/></g></symbol><symbol id="gas-emergency" viewBox="0 0 12 17"><path d="M6.715 15.045a.916.916 0 0 0 .276-.718c-.024-.302-.22-.584-.408-.855-.286-.411-.443-.81-.478-1.201-1.757 1.632-.899 2.634-.86 2.678.348.449 1.065.504 1.47.096zm.447-.039c.127-.08.248-.173.357-.282.414-.414.626-.968.582-1.52-.05-.631-.445-1.198-.827-1.745l-.033-.048c-.595-.855-.892-1.714-.885-2.56-3.906 3.44-2.039 5.586-1.955 5.678.123.161.273.291.433.406-.242-.45-.543-1.596 1.334-3.16a.179.179 0 0 1 .194-.023c.064.031.1.095.092.16-.054.443.08.9.4 1.359.22.318.45.648.48 1.032.02.245-.044.488-.172.703zm2.11-1.286c.172-.188 3.998-4.584-4.006-11.626.017 1.733-.59 3.494-1.808 5.246l-.066.095C2.61 8.555 1.803 9.713 1.7 11.007c-.09 1.129.344 2.262 1.19 3.11a4.198 4.198 0 0 0 1.623 1 2.234 2.234 0 0 1-.383-.39c-.014-.015-2.27-2.566 2.308-6.382a.18.18 0 0 1 .194-.024c.064.031.1.095.092.16-.11.902.16 1.829.806 2.755l.033.048c.386.555.824 1.183.881 1.897.05.637-.194 1.276-.67 1.756a4.064 4.064 0 0 0 1.499-1.217zM5.1 1.082l.32-.384c3.996 3.33 6.057 6.621 6.08 9.798a6.487 6.487 0 0 1-.589 2.795c-.242.525-.506.911-.708 1.14-1.004 1.298-2.621 2.069-4.33 2.069a5.394 5.394 0 0 1-3.842-1.594C.954 13.826.4 12.373.515 10.92c.106-1.324.602-2.273 1.89-4.122l.065-.092C3.723 4.905 4.242 3.13 4.032 1.418a.813.813 0 0 1 .46-.831.864.864 0 0 1 .927.11l-.32.385z"/></symbol><symbol id="gas" viewBox="0 0 11 17"><g fill="none" fill-rule="evenodd" stroke="#00aff0" stroke-linejoin="round"><path d="M4.286 1.357c3.773 3.113 5.66 6.089 5.66 8.928 0 3.481-2.25 5.342-5.082 5.342-2.833 0-4.239-2.664-4.239-4.461 0-2.14 1.06-2.558 2.893-5.986.499-.934.755-2.208.768-3.823z"/><g stroke-width=".5"><path d="M5.373 7.845c.006.825.137 1.476.392 1.953.936 1.751 1.477 1.965 1.477 3.058 0 .918-.718 2.279-2.165 2.279-1.446 0-2.595-.951-2.595-2.73 0-1.45.963-2.97 2.89-4.56z"/><path d="M5.297 11.336c.004.43.072.77.205 1.018.488.912.77 1.024.77 1.593 0 .478-.375 1.188-1.129 1.188s-1.352-.496-1.352-1.422c0-.756.502-1.548 1.506-2.377z"/></g></g></symbol><symbol id="home" viewBox="0 0 17 15"><g stroke="#00AFF0" fill="none" fill-rule="evenodd" stroke-linejoin="round"><path d="M3.188 7.813v5.625c0 .345.28.624.624.624h2.813c.173 0 .313-.14.313-.312v-2.5a1.563 1.563 0 0 1 3.125 0v2.5c0 .173.14.313.312.313h2.813c.345 0 .624-.28.624-.626V8.125" stroke-width=".5"/><path d="M1.313 7.5L8.5.312 15.688 7.5"/></g></symbol><symbol id="pay-bill" viewBox="0 0 24 19"><g transform="translate(1 1)" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 3.125a.375.375 0 1 1 0 .75.375.375 0 0 1 0-.75M15.5 9.125a.375.375 0 1 1 0 .75.375.375 0 0 1 0-.75"/><rect stroke-width="2" width="19" height="14" rx="1.5" stroke="currentColor"/><circle cx="10" cy="7" r="3"/><path d="M22 5v10.286c0 .946-.672 1.714-1.5 1.714H4"/></g></symbol><symbol id="pin" viewBox="0 0 12 18"><g transform="translate(1 1)" stroke="#00AFF0" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><path d="M5.333.473a5 5 0 0 1 5 5c0 2.365-3.666 8.254-4.719 9.9a.333.333 0 0 1-.561 0C4 13.728.333 7.838.333 5.473a5 5 0 0 1 5-5z"/><circle stroke-width=".5" cx="5.333" cy="5.473" r="2"/></g></symbol><symbol id="power-outage" viewBox="0 0 9 15"><path d="M7.97 7.04a.761.761 0 0 0 .012-.69.594.594 0 0 0-.525-.35H5.412V0L1.089 7.961a.76.76 0 0 0-.013.69c.107.216.308.35.526.349h2.045v6L7.97 7.04z" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol><symbol id="question-circle" viewBox="0 0 21 21"><path d="M10.5 21C4.701 21 0 16.299 0 10.5S4.701 0 10.5 0 21 4.701 21 10.5 16.299 21 10.5 21zm-1.089-7.156V16h2.198v-2.156H9.411zm-2.254-4.62h2.058c0-.252.028-.488.084-.707a1.7 1.7 0 0 1 .26-.574c.116-.163.265-.294.447-.392.182-.098.4-.147.651-.147.373 0 .665.103.875.308.21.205.315.523.315.952.01.252-.035.462-.133.63a1.88 1.88 0 0 1-.385.462c-.159.14-.331.28-.518.42-.187.14-.364.306-.532.497a2.892 2.892 0 0 0-.44.693c-.127.27-.204.607-.232 1.008v.63h1.89v-.532c.037-.28.128-.513.273-.7.145-.187.31-.352.497-.497.187-.145.385-.29.595-.434a2.727 2.727 0 0 0 1.008-1.267c.117-.29.175-.658.175-1.106a2.513 2.513 0 0 0-.756-1.75c-.27-.27-.628-.497-1.07-.679-.444-.182-.997-.273-1.66-.273-.513 0-.978.086-1.393.259a3.09 3.09 0 0 0-1.064.721 3.288 3.288 0 0 0-.686 1.092 4 4 0 0 0-.259 1.386z" fill="#53565A" fill-rule="nonzero" fill-opacity=".7"/></symbol><symbol id="question" viewBox="0 0 47 40"><path d="M24.872 26.88c.64-.864 1.152-1.936 1.536-3.216.384-1.28.576-2.832.576-4.656 0-1.504-.168-2.96-.504-4.368-.336-1.408-.872-2.664-1.608-3.768a8.157 8.157 0 0 0-2.88-2.64c-1.184-.656-2.624-.984-4.32-.984-1.696 0-3.136.328-4.32.984a8.157 8.157 0 0 0-2.88 2.64c-.736 1.104-1.272 2.36-1.608 3.768a18.754 18.754 0 0 0-.504 4.368c0 1.44.168 2.84.504 4.2a11.35 11.35 0 0 0 1.608 3.672 8.241 8.241 0 0 0 2.88 2.616c1.184.656 2.624.984 4.32.984.8 0 1.408-.032 1.824-.096a4.044 4.044 0 0 0 1.2-.384l-3.216-2.928 3.504-3.744 3.888 3.552zm1.104 7.92c-2.272 1.312-5.04 1.968-8.304 1.968-2.624 0-4.984-.456-7.08-1.368-2.096-.912-3.864-2.168-5.304-3.768-1.44-1.6-2.544-3.48-3.312-5.64-.768-2.16-1.152-4.488-1.152-6.984 0-2.56.384-4.936 1.152-7.128.768-2.192 1.872-4.104 3.312-5.736 1.44-1.632 3.208-2.912 5.304-3.84 2.096-.928 4.456-1.392 7.08-1.392 2.656 0 5.024.464 7.104 1.392 2.08.928 3.84 2.208 5.28 3.84 1.44 1.632 2.544 3.544 3.312 5.736.768 2.192 1.152 4.568 1.152 7.128 0 2.496-.384 4.816-1.152 6.96-.768 2.144-1.872 4.032-3.312 5.664l4.272 3.888-3.504 3.648-4.848-4.368zm20.832-15.792h-7.536v-7.392h7.536v7.392zm-7.536 9.6h7.536V36h-7.536v-7.392z" fill-rule="evenodd"/></symbol><symbol id="search" viewBox="0 0 15 14"><g stroke="currentColor" fill="none" fill-rule="evenodd"><circle stroke-width="2" cx="6.567" cy="6.567" r="5.206"/><path d="M10 10l4 4" stroke-linecap="round" stroke-linejoin="round"/></g></symbol><symbol id="facebook" viewBox="0 0 24 24"><path d="M22.675 0H1.315A1.325 1.325 0 0 0 0 1.325v21.36A1.325 1.325 0 0 0 1.325 24H12.82v-9.28H9.7v-3.634h3.12V8.414c0-3.098 1.893-4.8 4.658-4.8.933-.004 1.866.045 2.794.144v3.25h-1.92c-1.5 0-1.79.72-1.79 1.764v2.314h3.597l-.48 3.633h-3.12V24h6.115c.732 0 1.325-.593 1.325-1.325V1.315A1.325 1.325 0 0 0 22.675 0z" fill="#FFF" fill-rule="evenodd"/></symbol><symbol id="instagram" viewBox="0 0 24 24"><g fill="#FFF" fill-rule="evenodd"><path d="M16.82 0H7.138A7.145 7.145 0 0 0 0 7.137v9.684a7.145 7.145 0 0 0 7.137 7.137h9.684a7.145 7.145 0 0 0 7.137-7.137V7.137C23.958 3.202 20.756 0 16.821 0zm4.728 16.82a4.727 4.727 0 0 1-4.727 4.728H7.137A4.727 4.727 0 0 1 2.41 16.82V7.137A4.727 4.727 0 0 1 7.137 2.41h9.684a4.727 4.727 0 0 1 4.727 4.727v9.684z" fill-rule="nonzero"/><path d="M11.979 5.783a6.203 6.203 0 0 0-6.196 6.196 6.203 6.203 0 0 0 6.196 6.196 6.203 6.203 0 0 0 6.196-6.196 6.203 6.203 0 0 0-6.196-6.196zm0 9.982a3.786 3.786 0 1 1 0-7.572 3.786 3.786 0 0 1 0 7.572z" fill-rule="nonzero"/><circle cx="18.187" cy="5.829" r="1.485"/></g></symbol><symbol id="twitter" viewBox="0 0 28 24"><path d="M1.826 1.263C4.17 4.35 8.367 7.265 14 7.578c-.31-1.34-.34-4.98 2.115-6.493C17.214.408 18.254 0 19.48 0c1.539 0 2.802.547 4.146 1.88 1.094-.166 3.137-1.077 3.622-1.435-.316 1.256-1.579 2.868-2.49 3.251.837-.003 2.679-.522 3.243-.828-.783 1.305-2.15 2.556-2.898 3.075C25.968 13.988 19.056 23.99 9.13 24c-2.834.003-5.915-.622-9.13-2.527 3.172.386 6.57-.68 8.522-2.526-2.461-.058-4.954-1.778-6.087-4.421 1.233.398 2.37.6 3.043 0-1.148-.134-4.87-2.248-4.87-6.344.856.735 2.087 1.493 3.044 1.291-1.566-.962-3.842-4.626-1.826-8.21z" fill="#FFF" fill-rule="evenodd"/></symbol><symbol id="youtube" viewBox="0 0 29 21"><path d="M22.927.025H6.01A6.01 6.01 0 0 0 0 6.035v8.457a6.01 6.01 0 0 0 6.01 6.01h16.917a6.01 6.01 0 0 0 6.01-6.01V6.035a6.01 6.01 0 0 0-6.01-6.01zm-4.064 10.65l-7.913 3.773a.318.318 0 0 1-.454-.286V6.378c0-.237.25-.39.46-.283l7.914 4.01a.318.318 0 0 1-.007.57z" fill="#FFF" fill-rule="nonzero"/></symbol><symbol id="blank-carrot" viewBox="0 0 14 7"><path d="M14 6.462H0L7 0z" fill-rule="nonzero"/></symbol><symbol id="carrot-right" viewBox="0 0 5 12"><path d="M0 .429L5 6l-5 5.571z" fill-rule="nonzero"/></symbol><symbol id="carrot" viewBox="0 0 14 7"><path d="M0 0h14L7 6.462z" fill="#00148C" fill-rule="nonzero"/></symbol><symbol id="close-button" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><circle fill="#cacccd" cx="12" cy="12" r="12"/><path fill="#00148C" d="M10.586 12L6.343 7.757l1.414-1.414L12 10.586l4.243-4.243 1.414 1.414L13.414 12l4.243 4.243-1.414 1.414L12 13.414l-4.243 4.243-1.414-1.414z"/></g></symbol><symbol id="download" viewBox="0 0 16 17"><g fill="#FFF" fill-rule="evenodd"><path d="M.538 16.37c-.35-.202-.534-.493-.533-.887 0-1.405.004-2.81-.005-4.216-.001-.202.045-.274.272-.266.519.016 1.04.017 1.558 0 .244-.009.317.051.313.293-.015.955.001 1.91-.011 2.866-.003.232.028.325.316.325 3.507-.012 7.014-.01 10.522-.002.254 0 .309-.069.305-.299-.013-.967.002-1.934-.011-2.9-.003-.218.051-.29.289-.283.542.016 1.086.01 1.629.002.166-.003.225.04.225.207-.007 1.45.006 2.9-.01 4.35-.005.52-.384.782-.854.948-9.292-.066-13.96-.112-14.005-.137z"/><path d="M9.605 0c.209.118.174.32.174.509 0 1.85.007 3.701-.007 5.552-.002.293.049.412.374.392.491-.031.87-.015 1.48-.005.131.002.292-.011.358.136.058.129-.04.235-.115.332-1.113 1.44-2.223 2.882-3.342 4.316-.334.427-.536.418-.878.006a20946.5 20946.5 0 0 1-3.486-4.204c-.086-.105-.21-.212-.144-.357.071-.159.295-.086.624-.089.412-.003.733-.022 1.225.001.305.014.422-.047.419-.392C6.268 4.278 6.28 2.36 6.273.44c0-.192.004-.353.203-.439h3.13z"/></g></symbol><symbol id="filter" viewBox="0 0 18 17"><path d="M10.7 8.007v5.2l-3.4 3.4v-8.6L-.207.5h18.414L10.7 8.007z" fill-rule="nonzero" stroke="#00148C" fill="none" stroke-linejoin="round"/></symbol><symbol id="info" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><circle fill="#cacccd" cx="12" cy="12" r="12"/><path d="M11 6h2v2h-2V6zm0 4h2v8h-2v-8z" fill="#00148C"/></g></symbol><symbol id="minus" viewBox="0 0 22 22"><g transform="translate(1 1)" fill-rule="nonzero" fill="none"><path fill="#00148C" d="M9 4h2v12H9z"/><circle stroke="#00148C" cx="10" cy="10" r="10"/></g></symbol><symbol id="plus" viewBox="0 0 22 22"><g transform="translate(1 1)" fill-rule="nonzero" fill="none"><path fill="#00148C" d="M9 4h2v12H9z"/><path fill="#00148C" d="M4 9h12v2H4z"/><circle stroke="#00148C" cx="10" cy="10" r="10"/></g></symbol><symbol id="rebate-downloads" viewBox="0 0 32 32"><g stroke="#00148C" fill="none" fill-rule="evenodd" stroke-linejoin="round"><path d="M6 11.333h12.667M6 15.333h8M6 7.333h9.333M6 19.333h5.333M6 23.333h5.333"/><path d="M14 31.333H2A1.333 1.333 0 0 1 .667 30V2C.667 1.264 1.264.667 2 .667h17.724c.354 0 .693.14.943.39L25.609 6c.25.25.39.59.391.943v4.39" stroke-width="2"/><circle stroke-linecap="round" cx="23.333" cy="23.333" r="8"/><path d="M23.333 19.333v8M23.333 27.333l-3-3M23.333 27.333l3-3" stroke-linecap="round"/></g></symbol><symbol id="slideshow-control" viewBox="0 0 64 64"><g fill="none" fill-rule="evenodd"><path fill-opacity=".5" fill="#000" d="M32 .887L63.113 32 32 63.113.887 32z"/><path fill="#FFF" d="M32 17.858v28.284L17.858 32z"/></g></symbol><symbol id="menu-close" viewBox="0 0 27 32"><g fill="#00148C" fill-rule="evenodd"><path d="M11.834 10.258L3 1.424 4.424 0l8.834 8.834L22.092 0l1.424 1.424-8.834 8.834 8.834 8.834-1.424 1.424-8.834-8.834-8.834 8.834L3 19.092z" fill-rule="nonzero"/><text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="10" font-weight="300" letter-spacing=".71"><tspan x="0" y="32">close</tspan></text></g></symbol><symbol id="menu-tablet" viewBox="0 0 27 27"><use xlink:href="#menu-tablet-a" transform="translate(0 4)"/><use xlink:href="#menu-tablet-a" transform="translate(0 12.5)"/></symbol><symbol id="menu" viewBox="0 0 27 32"><use xlink:href="#menu-a" transform="translate(0 4)"/><text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="10" font-weight="300" letter-spacing=".51"><tspan x=".605" y="26">menu</tspan></text></symbol><symbol id="search-close" viewBox="0 0 27 32"><path fill="#00148C" fill-rule="nonzero" d="M11.834 16.258L3 7.424 4.424 6l8.834 8.834L22.092 6l1.424 1.424-8.834 8.834 8.834 8.834-1.424 1.424-8.834-8.834-8.834 8.834L3 25.092z"/></symbol><symbol id="search-open" viewBox="0 0 27 32"><g transform="translate(2 5)" stroke="#00148C" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><circle stroke-width="2" cx="10.11" cy="10.109" r="9.273"/><path d="M16.5 16.5L23 23"/></g></symbol></svg>
+</div>  
+  <div class="page-wrapper">
+    <a class="a11y-text" href="#main-page-content">Skip to main content</a>
+    
+    <div id="ngcw-main-navigation" class="ngcw-main-navigation-wrapper -microsite">
+      <header class="ngcw-main-navigation">
+        <div class="ngcw-main-navigation__utility">
+          <div class="ngcw-container">
+            <div class="ngcw-main-navigation__utility-actions">
+              <a href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Contact-Us" data-a11y-focus="first"  >Contact Us</a>
+              <button class="button -icon ngcw-main-navigation__search display-inline-block-tablet" data-js-search>
+                <svg class="icon icon-search" style="" aria-hidden="true" focusable="false">
+                  <use xlink:href="#search"></use>
+                </svg>
+                <svg class="icon icon-close" style="" aria-hidden="true" focusable="false">
+                  <use xlink:href="#close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="ngcw-main-navigation__drawer">
+          <div class="ngcw-container">
+            <form class="ngcw-main-navigation__search" action="https://www.nationalgridus.com/new-energy-solutions/Search.aspx"  >
+              <label for="search-input" class="ngcw-main-navigation__search-input">
+                <span class="a11y-hide">Enter search term</span>
+                <span class="display-inline-block-tablet">
+                  <svg class="icon icon-search" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#search"></use>
+                  </svg>
+                </span>
+                <input type="text" id="search-input" name="q" placeholder="Search" required>
+              </label>
+              <button class="button" type="submit">
+                <span class="a11y-hide">Search button</span>
+                <span class="display-none-tablet">
+                  <svg class="icon icon-search" style="stroke: #ffffff;" aria-hidden="true" focusable="false">
+                    <use xlink:href="#search"></use>
+                  </svg></span>
+                <span class="display-block-tablet">Search</span>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="ngcw-main-navigation__main">
+          <div class="ngcw-container">            
+            <div class="ngcw-main-navigation__microsite-title">
+              <a href="/" class="ngcw-main-navigation__logo">
+              	<svg class="icon icon-logo" style="" aria-hidden="true" focusable="false">
+                	<use xlink:href="#logo"></use>
+              	</svg>
+              	<span class="a11y-hide">National Grid US Logo</span>
+            	</a>
+              <button class="ngcw-main-navigation__logo" type="button" data-js-logo data-a11y-focus="second">
+              	<svg class="icon icon-logo" style="" aria-hidden="true" focusable="false">
+                	<use xlink:href="#logo"></use>
+              	</svg>
+              	<span class="a11y-hide">Click to close nav drawer</span>
+            	</button>
+              <h1>                
+              	<a href="https://www.nationalgridus.com/new-energy-solutions/">
+									New Energy Solutions								</a>              
+              </h1>
+            </div>
+            <nav>
+              <ul>
+                <!-- WRITE MAIN NAV SECTIONS -->
+                <li class="ngcw-main-navigation__top-level" data-js-expandable>  <button class="button ngcw-main-navigation__main-button js-submenu-expand" type="button" aria-expanded="false">    <span class="a11y-hide">Click to expand the menu for </span>About Us  </button>  <div class="ngcw-main-navigation__mega-menu js-submenu">    <div class="ngcw-container">      <ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Who-We-Are-and-What-We-Do" >Who We Are and What We Do</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Contact-Us" >Contact Us</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/News" >News</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="" >Media</a></li>  </ul>    </div>  </div></li><li class="ngcw-main-navigation__top-level" data-js-expandable>  <button class="button ngcw-main-navigation__main-button js-submenu-expand" type="button" aria-expanded="false">    <span class="a11y-hide">Click to expand the menu for </span>Community Projects  </button>  <div class="ngcw-main-navigation__mega-menu js-submenu">    <div class="ngcw-container">      <ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >Massachusetts</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Massachusetts" >Mass Solar</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Massachusetts/DemandLink-Nantucket" target="_blank" rel="noopener noreferrer">DemandLink: Nantucket</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >Rhode Island</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/DemandLink" >DemandLink: Tiverton and Little Compton</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/SolarWise-Rhode-Island" > SolarWise Rhode Island</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/Energy-Challenge" >Energy Challenge</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/Volt-VAR-Optimization" >RI Volt/VAR Optimization</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >New York</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Fruit-Belt-Neighborhood-Solar-Partnership" >Buffalo Fruit Belt</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Kenmore-coolControl" > Kenmore coolControl</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/NY-Prize" >NY Prize</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/New-York/Clifton-Park" target="_blank" rel="noopener noreferrer">Clifton Park</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Gas-Rev" >Gas REV</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Distributed-System-Platform" >Buffalo DSP</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Potsdam-Microgrid" >Potsdam Microgrid</a></li></ul>    </div>  </div></li><li class="ngcw-main-navigation__top-level" data-js-expandable>  <button class="button ngcw-main-navigation__main-button js-submenu-expand" type="button" aria-expanded="false">    <span class="a11y-hide">Click to expand the menu for </span>Smart Technology  </button>  <div class="ngcw-main-navigation__mega-menu js-submenu">    <div class="ngcw-container">      <ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >The Connected Home and Business</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/ConnectedSolutions" >ConnectedSolutions</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/Smart-Thermostats" >Smart Thermostats</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/The-Connected-Home-and-Business/Energy-Saving-Programs" target="_blank" rel="noopener noreferrer">Energy Saving Programs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/Smart-Meters" >Smart Meters</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >EVs and Clean Transportation</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/National-Grid-and-Electric-Vehicles" >National Grid and EVs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Charging-EVs" >Charging EVs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Incentives-for-EVs" >Incentives for EVs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Test-Driving-EVs" >Test Driving EVs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Fuel-Cell-Vehicles" >Fuel Cell Vehicles</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/FAQs" >FAQs</a></li></ul>    </div>  </div></li><li class="ngcw-main-navigation__top-level" data-js-expandable>  <button class="button ngcw-main-navigation__main-button js-submenu-expand" type="button" aria-expanded="false">    <span class="a11y-hide">Click to expand the menu for </span>Solar  </button>  <div class="ngcw-main-navigation__mega-menu js-submenu">    <div class="ngcw-container">      <ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >MA Solar</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Massachusetts" > Overview</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/Current-Projects" >Current Projects</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >RI Solar</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/SolarWise-Rhode-Island" >SolarWise</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >NY Solar</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Fruit-Belt-Neighborhood-Solar-Partnership" >Buffalo Fruit Belt Neighborhood Solar Partnership</a></li></ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="#" >Resources</a></li>  <li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/FAQs" >Solar FAQs</a></li><li><a class="button -link-sub ngcw-main-navigation__section-link" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/Additional-Information" >Additional Information</a></li></ul>    </div>  </div></li><li class="ngcw-main-navigation__top-level" data-js-expandable>  <button class="button ngcw-main-navigation__main-button js-submenu-expand" type="button" aria-expanded="false">    <span class="a11y-hide">Click to expand the menu for </span>Working With Us  </button>  <div class="ngcw-main-navigation__mega-menu js-submenu">    <div class="ngcw-container">      <ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Why-You-Should-Work-With-Us" >Why You Should Work With Us</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Partnerships-Team" >NES Partnerships</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Upcoming-RFPs" >Upcoming RFPs</a></li>  </ul><ul class="ngcw-main-navigation__mega-menu-section">  <li><a class="button -link-sub ngcw-main-navigation__primary-link" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/InDemand-for-Vendors" >InDemand for Vendors</a></li>  </ul>    </div>  </div></li>                
+                <li class="display-none-tablet">
+                  <button class="button -icon-stacked ngcw-main-navigation__search ngcw-main-navigation__main-button" data-js-search="">
+                    <svg class="icon icon-search-open" style="" aria-hidden="true" focusable="false">
+                      <use xlink:href="#search-open"></use>
+                    </svg>
+                    <svg class="icon icon-close" style="" aria-hidden="true" focusable="false">
+                      <use xlink:href="#close"></use>
+                    </svg>
+                  </button>
+                </li>
+                <li class="display-none-unique-desktop-nav">
+                  <button class="button -icon-stacked ngcw-main-navigation__hamburger ngcw-main-navigation__main-button" data-js-nav-drawer="">
+                    <svg class="icon icon-menu" style="" aria-hidden="true" focusable="false">
+                      <use xlink:href="#menu"></use>
+                    </svg>
+                    <svg class="icon icon-menu-tablet" style="" aria-hidden="true" focusable="false">
+                      <use xlink:href="#menu-tablet"></use>
+                    </svg>
+                    <svg class="icon icon-search-close" style="" aria-hidden="true" focusable="false">
+                      <use xlink:href="#search-close"></use>
+                    </svg>
+                    <span class="display-none-tablet">
+                      <svg class="icon icon-menu-close" style="" aria-hidden="true" focusable="false">
+                        <use xlink:href="#menu-close"></use>
+                      </svg></span>
+                    <span class="button__text display-block-tablet">Menu</span>
+                    <span class="a11y-hide">Click to expand the nav drawer menu</span>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="nav-drawer">
+          <nav>
+            <ul>
+              <!-- WRITE NAV DRAWER MAIN NAV SECTIONS -->
+              <li class="nav-drawer__top-level">
+    <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+        <span class="a11y-hide">Click to expand the menu for </span>About Us        <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+            <use xlink:href="#carrot-right"></use>
+        </svg>
+    </button>
+    <div class="nav-drawer__submenu js-submenu" data-js-level="2">
+        <div class="nav-drawer__submenu-expanded">
+            <button class="button -back" type="button" data-js-back>
+                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                Back
+            </button>
+            <span class="nav-drawer__submenu-title">About Us</span>
+        </div>
+        <ul>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Who-We-Are-and-What-We-Do"  >
+                    Who We Are and What We Do                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Contact-Us"  >
+                    Contact Us                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/News"  >
+                    News                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href=""  >
+                    Media                </a>
+                                
+            </li>
+                    </ul>
+    </div>
+</li><li class="nav-drawer__top-level">
+    <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+        <span class="a11y-hide">Click to expand the menu for </span>Community Projects        <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+            <use xlink:href="#carrot-right"></use>
+        </svg>
+    </button>
+    <div class="nav-drawer__submenu js-submenu" data-js-level="2">
+        <div class="nav-drawer__submenu-expanded">
+            <button class="button -back" type="button" data-js-back>
+                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                Back
+            </button>
+            <span class="nav-drawer__submenu-title">Community Projects</span>
+        </div>
+        <ul>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>Massachusetts                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="https://www.google.com"  >Massachusetts</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Massachusetts" >Mass Solar</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Massachusetts/DemandLink-Nantucket" target="_blank" rel="noopener noreferrer">DemandLink: Nantucket</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>Rhode Island                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >Rhode Island</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/DemandLink" >DemandLink: Tiverton and Little Compton</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/SolarWise-Rhode-Island" > SolarWise Rhode Island</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/Energy-Challenge" >Energy Challenge</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/Volt-VAR-Optimization" >RI Volt/VAR Optimization</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>New York                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >New York</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Fruit-Belt-Neighborhood-Solar-Partnership" >Buffalo Fruit Belt</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Kenmore-coolControl" > Kenmore coolControl</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/NY-Prize" >NY Prize</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/New-York/Clifton-Park" target="_blank" rel="noopener noreferrer">Clifton Park</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Gas-Rev" >Gas REV</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Distributed-System-Platform" >Buffalo DSP</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Potsdam-Microgrid" >Potsdam Microgrid</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                    </ul>
+    </div>
+</li><li class="nav-drawer__top-level">
+    <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+        <span class="a11y-hide">Click to expand the menu for </span>Smart Technology        <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+            <use xlink:href="#carrot-right"></use>
+        </svg>
+    </button>
+    <div class="nav-drawer__submenu js-submenu" data-js-level="2">
+        <div class="nav-drawer__submenu-expanded">
+            <button class="button -back" type="button" data-js-back>
+                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                Back
+            </button>
+            <span class="nav-drawer__submenu-title">Smart Technology</span>
+        </div>
+        <ul>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>The Connected Home and Business                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >The Connected Home and Business</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/ConnectedSolutions" >ConnectedSolutions</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/Smart-Thermostats" >Smart Thermostats</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/The-Connected-Home-and-Business/Energy-Saving-Programs" target="_blank" rel="noopener noreferrer">Energy Saving Programs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/The-Connected-Home-and-Business/Smart-Meters" >Smart Meters</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>EVs and Clean Transportation                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >EVs and Clean Transportation</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/National-Grid-and-Electric-Vehicles" >National Grid and EVs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Charging-EVs" >Charging EVs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Incentives-for-EVs" >Incentives for EVs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Test-Driving-EVs" >Test Driving EVs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/Fuel-Cell-Vehicles" >Fuel Cell Vehicles</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Smart-Technology/EVs-and-Clean-Transportation/FAQs" >FAQs</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                    </ul>
+    </div>
+</li><li class="nav-drawer__top-level">
+    <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+        <span class="a11y-hide">Click to expand the menu for </span>Solar        <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+            <use xlink:href="#carrot-right"></use>
+        </svg>
+    </button>
+    <div class="nav-drawer__submenu js-submenu" data-js-level="2">
+        <div class="nav-drawer__submenu-expanded">
+            <button class="button -back" type="button" data-js-back>
+                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                Back
+            </button>
+            <span class="nav-drawer__submenu-title">Solar</span>
+        </div>
+        <ul>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>MA Solar                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >MA Solar</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Massachusetts" > Overview</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/Current-Projects" >Current Projects</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>RI Solar                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >RI Solar</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/Rhode-Island/SolarWise-Rhode-Island" >SolarWise</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>NY Solar                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >NY Solar</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Community-Projects/New-York/Buffalo-Fruit-Belt-Neighborhood-Solar-Partnership" >Buffalo Fruit Belt Neighborhood Solar Partnership</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                        <li>
+                                                       <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+                    <span class="a11y-hide">Click to expand the menu for </span>Resources                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                </button>
+                <div class="nav-drawer__submenu js-submenu" data-js-level="3">
+                    <div class="nav-drawer__submenu-expanded">
+                        <button class="button -back" type="button" data-js-back>
+                            <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                                <use xlink:href="#carrot-right"></use>
+                            </svg>
+                            Back
+                        </button>
+                        <a class="nav-drawer__submenu-title" href="#"  >Resources</a>
+                    </div>
+                    <ul>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/FAQs" >Solar FAQs</a></li>
+                                                <li><a class="button" href="https://www.nationalgridus.com/new-energy-solutions/Renewables/Solar/Additional-Information" >Additional Information</a></li>
+                                            </ul>
+                </div>                 
+            </li>
+                    </ul>
+    </div>
+</li><li class="nav-drawer__top-level">
+    <button class="button js-submenu-expand" type="button" data-js-has-submenu>
+        <span class="a11y-hide">Click to expand the menu for </span>Working With Us        <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+            <use xlink:href="#carrot-right"></use>
+        </svg>
+    </button>
+    <div class="nav-drawer__submenu js-submenu" data-js-level="2">
+        <div class="nav-drawer__submenu-expanded">
+            <button class="button -back" type="button" data-js-back>
+                <svg class="icon icon-carrot-right" style="" aria-hidden="true" focusable="false">
+                    <use xlink:href="#carrot-right"></use>
+                </svg>
+                Back
+            </button>
+            <span class="nav-drawer__submenu-title">Working With Us</span>
+        </div>
+        <ul>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Why-You-Should-Work-With-Us"  >
+                    Why You Should Work With Us                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Partnerships-Team"  >
+                    NES Partnerships                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/Upcoming-RFPs"  >
+                    Upcoming RFPs                </a>
+                                
+            </li>
+                        <li>
+                                               <a class="button js-submenu-expand" href="https://www.nationalgridus.com/new-energy-solutions/Working-With-Us/InDemand-for-Vendors"  >
+                    InDemand for Vendors                </a>
+                                
+            </li>
+                    </ul>
+    </div>
+</li>              <li class="nav-drawer__top-level">
+        				<a class="button" href="https://www.nationalgridus.com/new-energy-solutions/About-Us/Contact-Us" >Contact Us</a>
+      				</li>
+            </ul>
+          </nav>
+          <div class="nav-drawer__end a11y-text" data-a11y-focus="last" tabindex="0">
+            You have reached the end of the nav drawer.
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="page-scrollable">
+      <main id="main-page-content">
+        
+    <div class="container breadcrumbs"><nav aria-label="breadcrumbs"><a class="button -link" href="/new-energy-solutions/Default" target="_self">Home</a><span class="crumb">Working With Us</span><span class="crumb">Upcoming RFPs</span></nav></div>  <div class="container page-content -two-col">
+    <aside id="sidebar" class="page-content__sidebar" aria-label="left sidebar">  <nav id="sub-navigation" class="sub-navigation" aria-label="sub"><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Why-You-Should-Work-With-Us" target="_self">Why You Should Work With Us</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Partnerships-Team" target="_self">NES Partnerships</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Upcoming-RFPs" target="_self">Upcoming RFPs</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Landlords-and-Managers" target="_self">Landlords and Managers</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/InDemand-for-Vendors" target="_self">InDemand for Vendors</a></nav>  </aside>    <div id="main-page-content" class="page-content__main">  <h1 class="page-title">Upcoming RFPs</h1>  
+<nav id="sub-nav-mobile" class="sub-navigation -mobile" data-js-expandable aria-label="sub">
+  <button class="button js-submenu-expand" type="button" aria-expanded="false">
+    <span class="a11y-hide">Click to expand the sub navigation. The current page is </span>Upcoming RFPs
+  </button>
+  <div class="sub-navigation__container js-submenu"><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Why-You-Should-Work-With-Us" target="_self">Why You Should Work With Us</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Partnerships-Team" target="_self">NES Partnerships</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Upcoming-RFPs" target="_self">Upcoming RFPs</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/Landlords-and-Managers" target="_self">Landlords and Managers</a><a class="button -link-sub" href="/new-energy-solutions/Working-With-Us/InDemand-for-Vendors" target="_self">InDemand for Vendors</a></div></nav>  <div class="wysiwyg" data-js-wysiwyg>  <p>Non-wires alternatives (NWA) provide an opportunity to help reduce customers&rsquo; electric bills by utilizing Distributed Energy Resources to maintain or even improve reliability and defer capital infrastructure investments. The New Energy Solutions team at National Grid, in conjunction with our Distribution and Transmission Planning and other teams, have identified opportunities that may create such change in a manner that helps reduce emissions, lower customer bills, and maintain reliability.</p>
+<p>For more information, please visit <a href="https://nyrevconnect.com/non-wires-alternatives/" target="_blank">nyrevconnect.com</a>.</p></div></div>      </div>
+
+      </main>
+      
+      <!-- WRITE FOOTER -->
+      <footer class="ngcw-footer">   <div class="ngcw-footer__container">    <div class="ngcw-footer-primary-links">      <nav class="ngcw-footer-primary-links-main" aria-label="footer">        <a class="ngcw-footer__button" href="http://www2.nationalgrid.com/uk" >  UK</a><a class="ngcw-footer__button" href="http://nationalgrid.com/ventures" >  Ventures</a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/Careers" >  Careers</a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/Privacy-Policy" >   Privacy & Cookies</a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/Terms-Conditions" >  Terms</a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/Accessibility" >  Accessibility </a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/Security" >  Security</a><a class="ngcw-footer__button" href="https://www.nationalgridus.com/Our-Company/DPU-Filing" >  Regulatory Filings</a><a class="ngcw-footer__button" href="http://optout.nationalgridus.com/ked/optout_all.jsp" >  Opt Out</a>      </nav>      <div class="ngcw-footer-social">  <a class="ngcw-footer-social-icon" href="https://www.google.com" target="_blank" rel="noopener noreferrer">    <svg class="icon icon-twitter color-white" role="img">      <use xlink:href="#twitter"></use>    </svg> <span class="a11y-hide">Click to view us on Twitter</span>  </a>  <a class="ngcw-footer-social-icon" href="https://www.google.com" target="_blank" rel="noopener noreferrer">    <svg class="icon icon-facebook color-white" role="img">      <use xlink:href="#facebook"></use>    </svg> <span class="a11y-hide">Click to view us on Facebook</span>  </a>  <a class="ngcw-footer-social-icon" href="https://www.google.com" target="_blank" rel="noopener noreferrer">    <svg class="icon icon-instagram color-white" role="img">      <use xlink:href="#instagram"></use>    </svg> <span class="a11y-hide">Click to view us on Instagram</span>  </a>  <a class="ngcw-footer-social-icon" href="https://www.google.com" target="_blank" rel="noopener noreferrer">    <svg class="icon icon-youtube color-white" role="img">      <use xlink:href="#youtube"></use>    </svg> <span class="a11y-hide">Click to view us on YouTube</span>  </a></div>    </div>    <div class="ngcw-footer-secondary">      <div id="google_translate_element"></div>      <p class="copyright">        Copyright &copy; 2019 National Grid USA Service Company, Inc. All rights reserved.      </p>    </div>  </div></footer><!-- Google Translate --><script type="text/javascript">	function googleTranslateElementInit() {		new google.translate.TranslateElement({			pageLanguage: 'en',			includedLanguages: 'af,ar,az,be,bs,ca,cs,cy,da,en,eo,es,et,eu,fa,fi,ga,gl,gu,ha,hi,hmn,hr,ht,hu,hy,id,ig,is,it,iw,ja,jv,km,kn,ko,la,lt,lv,mg,mi,mr,ms,mt,no,ny,pa,pl,pt,ro,ru,sk,sl,so,sq,su,sv,sw,te,tg,tr,ur,yi,yo,zh-CN,zh-TW,zu'		}, 'google_translate_element');	}</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script><!-- End Google Translate -->    </div>
+  </div>
+</body>
+</html>
+  

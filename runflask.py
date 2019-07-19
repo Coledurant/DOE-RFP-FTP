@@ -71,7 +71,10 @@ def index():
     data_dir_structure = data_dir_structure = get_directory_structure(DATA_DIR)
     data_dir_structure = data_dir_structure.get('data')
 
-    return render_template('index.html', data_dir_structure = data_dir_structure, data_url = DATA_DIR, data_dir_len = len(data_dir_structure))
+    last_run_row = pd.read_excel(os.path.join(DATA_DIR, 'history.xlsx'), 'Runs').iloc[-1]
+    last_run = last_run_row['Time Run'].strftime("%Last Run: %m/%d/%y at %H:%M")
+
+    return render_template('index.html', last_run = last_run, data_dir_structure = data_dir_structure, data_url = DATA_DIR, data_dir_len = len(data_dir_structure))
 
 @app.route('/download/<path:filepath>')
 def downloadFile(filepath):
