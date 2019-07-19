@@ -1,4 +1,0 @@
-Project Name: West Haverstraw
-Project Type: Reliability
-Project Size: Large
-RFP Status: Open until 8/31/18

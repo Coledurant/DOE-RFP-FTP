@@ -1,3 +1,0 @@
-A list of PDF file names that could not be downloaded:
-
-2019_APCo_Solar_RFP_.pdf
