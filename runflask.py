@@ -61,20 +61,46 @@ def get_directory_structure(rootdir):
 ###############################################################################
 ###############################################################################
 
+
+
 @app.route("/", methods=['POST','GET'])
 def index():
 
-    if request.method == 'POST':
-        print("Running")
-        run()
+    template_data = dict()
 
     data_dir_structure = data_dir_structure = get_directory_structure(DATA_DIR)
     data_dir_structure = data_dir_structure.get('data')
+    template_data['data_dir_structure'] = data_dir_structure
+    template_data['data_dir_len'] = len(data_dir_structure)
+    template_data['data_url'] = DATA_DIR
 
-    last_run_row = pd.read_excel(os.path.join(DATA_DIR, 'history.xlsx'), 'Runs').iloc[-1]
-    last_run = last_run_row['Time Run'].strftime("%Last Run: %m/%d/%y at %H:%M")
+    template_data['selection'] = 'All Files'
 
-    return render_template('index.html', last_run = last_run, data_dir_structure = data_dir_structure, data_url = DATA_DIR, data_dir_len = len(data_dir_structure))
+
+    try:
+        last_run_row = pd.read_excel(os.path.join(DATA_DIR, 'history.xlsx'), 'Runs').iloc[-1]
+        last_run = last_run_row['Time Run'].strftime("Last Run: %m/%d/%y at %H:%M")
+    except IndexError:
+        last_run = 'Last run: Never'
+
+    template_data['last_run'] = last_run
+
+    dropdown_list = ['All Files', 'Recent Folders', 'Update Files']
+    template_data['dropdown_list'] = dropdown_list
+
+    if request.method == 'POST':
+
+        if request.form.get('dropdown-selection'):
+
+            selection = request.form.get('dropdown-selection')
+            template_data['selection'] = selection
+
+            if selection == 'Update Files':
+
+                run()
+
+
+    return render_template('index.html', **template_data)
 
 @app.route('/download/<path:filepath>')
 def downloadFile(filepath):

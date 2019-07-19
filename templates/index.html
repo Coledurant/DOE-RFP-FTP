@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="static/css/main.css">
   <title>RFP Finder</title>
   <style media="screen">
-    .update-button {
-      color: #fff;background-color: #337ab7;border-color: #2e6da4;display: inline-block;
-      margin-bottom: 0;font-weight: 400;text-align: center;white-space: nowrap;vertical-align: middle;
-      -ms-touch-action: manipulation;touch-action: manipulation;cursor: pointer;background-image: none;
-      border: 1px solid transparent;padding: 6px 12px;font-size: 14px;line-height: 1.42857143;border-radius: 4px;
-      -webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;
+    #dropdown-selection select {
+      background-color: #4c5057;
+      color: white;
+      padding: 1%;
+      border: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -20,77 +20,109 @@
 <section class="container max-width-sm">
   <div class="text-component text-center">
     <h1>RFP Finder</h1>
-    <form method="POST" action="/">
-  		<input class="update-button" type="submit" name="submit" value="Update Files">
+    <!-- <form method="POST" action="/">
+  		<input class="update-button" type="submit" name="update-files" value="Update Files">
   	</form>
-    <br>
-    {{last_run}}
+    <form class="" action="/" method="POST" id="dropdown-selection" name="dropdown-selection" enctype="multipart/form-data">
+      <select id="dropdown-selection" onchange="SubmitForm('dropdown-selection')">
+        {% for each in dropdown_list %}
+          <option value="{{each}}">{{each}}</option>
+        {% endfor %}
+      </select>
+      <noscript><input type="submit" value="Submit" name="dropdown-selection"></noscript>
+    </form> -->
+
+    <form class="" action="/" method="POST" id="dropdown-selection" name="dropdown-selection" enctype="multipart/form-data">
+      <select name="dropdown-selection" id="dropdown-selection" onchange="SubmitForm('dropdown-selection')">
+        {% for each in dropdown_list %}
+          <option value="{{each}}" {% if each == selection %} selected {% endif %}>{{each}}</option>
+        {% endfor %}
+      </select>
+      <noscript><input type="submit" value="Submit" name="dropdown-selection"></noscript>
+    </form>
   </div>
 
-{% if data_dir_len != 0 %}
-
-    <ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg">
-      {% for key,parent_dict_item in data_dir_structure.items() %}
-        {% if parent_dict_item == None %}
-          <li class="cd-accordion__item cd-accordion__item--has-children-{{key}}">
-            <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}" download><span>{{key}}</span></a>
-          </li>
-        {% else %}
-          <li class="cd-accordion__item cd-accordion__item--has-children-{{key}}">
-            <input class="cd-accordion__input" type="checkbox" name ="group-1{{key}}" id="group-1{{key}}">
-            <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-1{{key}}"><span>{{key}}</span></label>
-            {% for key2, nested_2 in parent_dict_item.items() %}
-            <ul class="cd-accordion__sub cd-accordion__sub--l1">
-                {% if nested_2 == None %}
-                  <li class="cd-accordion__item cd-accordion__item--has-children-{{key2}}">
-                    <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}"><span>{{key2}}</span></a>
-                  </li>
-                {% else %}
-                    <li class="cd-accordion__item cd-accordion__item--has-children-{{key2}}">
-                      <input class="cd-accordion__input" type="checkbox" name ="sub-group-2{{key2}}" id="sub-group-2{{key2}}">
-                      <label class="cd-accordion__label cd-accordion__label--icon-folder" for="sub-group-2{{key2}}"><span>{{key2}}</span></label>
-                      {% for key3, nested_3 in nested_2.items() %}
-                        <ul class="cd-accordion__sub cd-accordion__sub--l2">
-                          {% if nested_3 == None %}
-                            <li class="cd-accordion__item cd-accordion__item--has-children-{{key3}}">
-                              <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}/{{key3}}"><span>{{key3}}</span></a>
-                            </li>
-                          {% else %}
-                              <li class="cd-accordion__item cd-accordion__item--has-children-{{key3}}">
-                                <input class="cd-accordion__input" type="checkbox" name ="sub-group-level-3{{key3}}" id="sub-group-level-3{{key3}}">
-                                <label class="cd-accordion__label cd-accordion__label--icon-folder" for="sub-group-level-3{{key3}}"><span>{{key3}}</span></label>
-                                {% for key4, nested_4 in nested_3.items() %}
-                                  <ul class="cd-accordion__sub cd-accordion__sub--l3">
-                                    {% if nested_4 == None %}
-                                    <li class="cd-accordion__item cd-accordion__item--has-children-{{key4}}">
-                                      <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}/{{key3}}/{{key4}}"><span>{{key4}}</span></a>
+    {% if selection == 'All Files' %}
+      <br>
+      <p style="text-align:center;">{{last_run}}</p>
+      <br>
+      {% if data_dir_len != 0 %}
+          <ul class="cd-accordion cd-accordion--animated margin-top-lg margin-bottom-lg">
+            {% for key,parent_dict_item in data_dir_structure.items() %}
+              {% if parent_dict_item == None %}
+                <li class="cd-accordion__item cd-accordion__item--has-children-{{key}}">
+                  <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}" download><span>{{key}}</span></a>
+                </li>
+              {% else %}
+                <li class="cd-accordion__item cd-accordion__item--has-children-{{key}}">
+                  <input class="cd-accordion__input" type="checkbox" name ="group-1{{key}}" id="group-1{{key}}">
+                  <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-1{{key}}"><span>{{key}}</span></label>
+                  {% for key2, nested_2 in parent_dict_item.items() %}
+                  <ul class="cd-accordion__sub cd-accordion__sub--l1">
+                      {% if nested_2 == None %}
+                        <li class="cd-accordion__item cd-accordion__item--has-children-{{key2}}">
+                          <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}"><span>{{key2}}</span></a>
+                        </li>
+                      {% else %}
+                          <li class="cd-accordion__item cd-accordion__item--has-children-{{key2}}">
+                            <input class="cd-accordion__input" type="checkbox" name ="sub-group-2{{key2}}" id="sub-group-2{{key2}}">
+                            <label class="cd-accordion__label cd-accordion__label--icon-folder" for="sub-group-2{{key2}}"><span>{{key2}}</span></label>
+                            {% for key3, nested_3 in nested_2.items() %}
+                              <ul class="cd-accordion__sub cd-accordion__sub--l2">
+                                {% if nested_3 == None %}
+                                  <li class="cd-accordion__item cd-accordion__item--has-children-{{key3}}">
+                                    <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}/{{key3}}"><span>{{key3}}</span></a>
+                                  </li>
+                                {% else %}
+                                    <li class="cd-accordion__item cd-accordion__item--has-children-{{key3}}">
+                                      <input class="cd-accordion__input" type="checkbox" name ="sub-group-level-3{{key3}}" id="sub-group-level-3{{key3}}">
+                                      <label class="cd-accordion__label cd-accordion__label--icon-folder" for="sub-group-level-3{{key3}}"><span>{{key3}}</span></label>
+                                      {% for key4, nested_4 in nested_3.items() %}
+                                        <ul class="cd-accordion__sub cd-accordion__sub--l3">
+                                          {% if nested_4 == None %}
+                                          <li class="cd-accordion__item cd-accordion__item--has-children-{{key4}}">
+                                            <a class="cd-accordion__label cd-accordion__label--icon-img" href="/download/{{key}}/{{key2}}/{{key3}}/{{key4}}"><span>{{key4}}</span></a>
+                                          </li>
+                                          {% else %}
+                                            <li class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span>Image</span></a></li>
+                                            <li class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span>Image</span></a></li>
+                                          {% endif %}
+                                        </ul>
+                                      {% endfor %}
                                     </li>
-                                    {% else %}
-                                      <li class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span>Image</span></a></li>
-                                      <li class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span>Image</span></a></li>
-                                    {% endif %}
-                                  </ul>
-                                {% endfor %}
-                              </li>
-                          {% endif %}
-                        </ul>
-                      {% endfor %}
-                    </li>
-                {% endif %}
-              </ul>
+                                {% endif %}
+                              </ul>
+                            {% endfor %}
+                          </li>
+                      {% endif %}
+                    </ul>
+                  {% endfor %}
+                </li>
+              {% endif %}
             {% endfor %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+          </ul>
+      {% else %}
+        <p>No data downloaded yet...</p>
+        <p>Press the button above and wait for download to complete</p>
+      {% endif %}
+    {% elif selection == 'Recent Folders' %}
+      <p>Recent Folders</p>
+    {% elif selection == 'Update Files' %}
+      <p>Update</p>
+    {% else %}
+    {% endif %}
 
-{% else %}
-  <p>No data downloaded yet...</p>
-  <p>Press the button above and wait for download to complete</p>
-{% endif %}
+
+
 
 
 </section>
+
+<script type="text/javascript">
+  function SubmitForm(formId) {
+    return document.getElementById(formId).submit()
+  }
+</script>
 <script src="static/js/util.js"></script>
 <script src="static/js/main.js"></script>
 </body>
