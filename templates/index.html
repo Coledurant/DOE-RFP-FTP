@@ -123,14 +123,14 @@
         {% endfor %}
       </select>
 
-    {% elif selection == 'Recent Downloads' %}
+    {% elif selection == 'File Downloads' %}
       <h1>Downloads From Last Run</h1>
       <div class="recent_downloads_div">
         {% if len_pdf_recent_rows > 0 %}
           <h4>PDF Files</h4>
           {% for row in pdf_recent_rows %}
             <div class="pdf_recent_downloads">
-                <p class="recent_download"><a class="" href="/download/{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
+                <p class="recent_download"><a class="" href="/download{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
             </div>
           {% endfor %}
         {% else %}
@@ -139,7 +139,7 @@
           <h4>Excel Files</h4>
           {% for row in excel_recent_rows %}
             <div class="excel_recent_downloads">
-                <p class="recent_download"><a class="" href="/download/{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
+                <p class="recent_download"><a class="" href="/download{{row[2]}}" download><span>{{row[2]}}\{{row[1]}}</span></a></p>
             </div>
           {% endfor %}
         {% else %}

@@ -17,6 +17,7 @@ import pandas as pd
 from pandas import ExcelWriter
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter, column_index_from_string
+import operator
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
@@ -539,6 +540,7 @@ def central_hudson_scrape(url):
         writer.save()
 
         history('ny_rev_connect', ny_rev_area = 'Central Hudson', ny_rev_info = 'Created Non Wire Alternative Opportunities Excel')
+        history('excel_download', excel_name = 'Non Wires Alternative Opportunities.xlsx', file_path = central_hudson_dir)
 
     else:
 
@@ -834,11 +836,155 @@ def ny_rev_connect():
 #
 ###############################################################################
 
+def get_sdge_rfp_info(rfp, open_closed_dir):
+
+    try:
+
+        node = rfp['href']
+        rfp_url = 'https://www.sdge.com{0}'.format(node)
+        rfp_html = requests.get(rfp_url).content
+        rfp_soup = BeautifulSoup(rfp_html, 'lxml')
+
+        rfp_title = rfp_soup.find('h1', attrs={'class':"builder-title col-sm-12"}).text.replace('/', '')
+
+        sdge_rfp_area_dir = os.path.join(open_closed_dir, rfp_title)
+        if not os.path.exists(sdge_rfp_area_dir):
+            os.mkdir(sdge_rfp_area_dir)
+            history('created_dir', dir_location = sdge_rfp_area_dir.split('RFPFinder')[1])
+        os.chdir(sdge_rfp_area_dir)
+
+
+
+
+        # DOWNLOADING DOCUMENTS
+        sdge_rfp_area_docs_dir = os.path.join(sdge_rfp_area_dir, 'Documents')
+        if not os.path.exists(sdge_rfp_area_docs_dir):
+            os.mkdir(sdge_rfp_area_docs_dir)
+            history('created_dir', dir_location = sdge_rfp_area_docs_dir.split('RFPFinder')[1])
+        os.chdir(sdge_rfp_area_docs_dir)
+
+        for a in rfp_soup.findAll('a'):
+            try:
+                if a['href'].endswith('.pdf'):
+
+                    pdf_name = a.text + '.pdf'
+
+                    download_pdf(a['href'], pdf_name)
+
+            except KeyError:
+                pass
+
+        os.chdir(sdge_rfp_area_dir)
+
+        content_div = rfp_soup.find('div', attrs={'class':'builder-element-inside-inner'})
+
+        title_pars = {}
+        for h2 in content_div.findAll('h2'):
+
+            ps = h2.find_all_next('p')
+            title_pars[h2] = ps
+
+        real_title_pars = {}
+        found_real_pars = []
+        for title, pars in title_pars.items():
+
+            other_pars = [par_list for h2, par_list in title_pars.items() if h2 != title]
+            op = [item for sublist in other_pars for item in sublist]
+
+            real_pars = []
+            for par in pars:
+
+                if par not in op:
+
+                    real_pars.append(par)
+                    found_real_pars.append(par)
+
+            real_title_pars[title] = real_pars
+            title_pars[title] = real_pars
+
+
+
+        for t, pl in title_pars.items():
+
+            if t.text == 'RFP Schedule':
+
+                # table = rfp_soup.find('table', attrs={'width':'587'})
+                # table_rows = table.find_all('tr')
+                #
+                # rows = []
+                # for inum, tr in enumerate(table_rows):
+                #     td = tr.find_all('td')
+                #     row = [tr.text.replace('\n', '') for tr in td]
+                #
+                #     if inum == 0:
+                #         title_row = row
+                #     else:
+                #         rows.append(row)
+                #
+                # non_wires_alternative_opps_frame = pd.DataFrame(rows, columns=title_row)
+                #
+                # if check_if_new_file('RFP Schedule.xlsx'):
+                #
+                #     writer = ExcelWriter('RFP Schedule.xlsx')
+                #     non_wires_alternative_opps_frame.to_excel(writer)
+                #     writer.save()
+                #
+                #     history('excel_download', excel_name = 'RFP Schedule.xlsx', file_path = sdge_rfp_area_dir)
+
+                pass
+
+            else:
+                pass
+
+    except Exception as e:
+
+        print(e)
+
+    finally:
+
+        os.chdir(open_closed_dir)
+
+    return
+
 def san_diego_gas_and_electric_scrape():
 
+    os.chdir(san_diego_gas_and_electric_dir)
 
+    url = conf.get('san_diego_gas_and_electric', 'san_diego_gas_and_electric_url')
 
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
 
+    closed_rfps = [h for h in soup.findAll('h2') if h.text == 'Closed RFO/RFP'][0]
+    closed_rfps_list = closed_rfps.find_all_next('a')
+
+    open_rfps = [h for h in soup.findAll('h1') if h.text == 'RFPs and RFOs'][0]
+    open_rfps_list = [a for a in open_rfps.find_all_next('a') if a not in closed_rfps_list]
+
+    open_rfps_dir = os.path.join(san_diego_gas_and_electric_dir, 'Open RFPS')
+    if not os.path.exists(open_rfps_dir):
+        os.mkdir(open_rfps_dir)
+        history('created_dir', dir_location = san_diego_gas_and_electric_dir.split('RFPFinder')[1])
+    os.chdir(open_rfps_dir)
+
+    for rfp_link_obj in open_rfps_list:
+
+        get_sdge_rfp_info(rfp_link_obj, open_rfps_dir)
+
+    os.chdir(san_diego_gas_and_electric_dir)
+
+    closed_rfps_dir = os.path.join(san_diego_gas_and_electric_dir, 'Closed RFPS')
+    if not os.path.exists(closed_rfps_dir):
+        os.mkdir(closed_rfps_dir)
+        history('created_dir', dir_location = san_diego_gas_and_electric_dir.split('RFPFinder')[1])
+    os.chdir(closed_rfps_dir)
+
+    for rfp_link_obj in closed_rfps_list:
+
+        get_sdge_rfp_info(rfp_link_obj, closed_rfps_dir)
+
+    os.chdir(san_diego_gas_and_electric_dir)
+    os.chdir(curr_dir)
 
     return
 

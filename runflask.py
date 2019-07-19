@@ -85,7 +85,7 @@ def index():
 
     template_data['last_run'] = last_run
 
-    dropdown_list = ['All Files', 'Dashboard', 'Recent Downloads', 'Run History', 'Update Files']
+    dropdown_list = ['All Files', 'Dashboard', 'File Downloads', 'Run History', 'Update Files']
     template_data['dropdown_list'] = dropdown_list
 
     if request.method == 'POST':
@@ -100,7 +100,7 @@ def index():
                 rfp_areas = [rfp for rfp in data_dir_structure.keys() if rfp != 'history.xlsx']
                 template_data['rfp_areas'] = rfp_areas
 
-            elif selection == 'Recent Downloads':
+            elif selection == 'File Downloads':
 
                 pdf_downloads = pd.read_excel('data/History.xlsx', 'PDF Downloads')
                 most_recent_pdfs_first_df = pdf_downloads.sort_values('Time Saved', ascending=False)
@@ -115,7 +115,7 @@ def index():
                         pdf_old_rows.append([row[1][0], row[1][1], row[1][2]])
                 template_data['pdf_recent_rows'] = pdf_recent_rows
                 template_data['len_pdf_recent_rows'] = len(pdf_recent_rows)
-                template_data['pdf_old_rows'] = set(pdf_old_rows)
+                template_data['pdf_old_rows'] = pdf_old_rows
                 template_data['len_pdf_old_rows'] = len(pdf_old_rows)
 
                 excel_downloads = pd.read_excel('data/History.xlsx', 'Excel Downloads')
@@ -129,7 +129,7 @@ def index():
                         excel_recent_rows.append([row[1][0], row[1][1], row[1][2]])
                     else:
                         excel_old_rows.append([row[1][0], row[1][1], row[1][2]])
-                template_data['excel_recent_rows'] = set(excel_recent_rows)
+                template_data['excel_recent_rows'] = excel_recent_rows
                 template_data['len_excel_recent_rows'] = len(excel_recent_rows)
 
 
