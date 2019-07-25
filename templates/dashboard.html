@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <title>RFP Finder</title>
+    <style media="screen">
+      #dropdown-selection select {
+        background-color: #4c5057;
+        color: white;
+        padding: 1%;
+        border: none;
+        cursor: pointer;
+      }
+      .recent_download {
+        font-weight:bold
+      }
+      .recent_downloads_div {
+        padding-top:2%;
+        width: 90%;
+        margin: auto;
+      }
+      .pdf_recent_downloads {
+        width: 90%;
+        margin:auto;
+      }
+      .old_downloads_div {
+        padding-top:2%;
+        width: 90%;
+        margin: auto;
+      }
+      .excel_recent_downloads {
+        width: 90%;
+        margin:auto;
+      }
+    </style>
+  </head>
+  <body style="padding: 3em 0; background-color:white">
+  <section class="container max-width-sm">
+    <div class="text-component text-center">
+      <h1>RFP Finder</h1>
+    </div>
+  </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <form class="" action="dashboard" method="POST">
+            Enter Keyword: <input type="text" name="word" value="">
+            <input class="btn btn-primary" type="submit" value="Add Keyword" name="text-box-word">
+          </form>
+          {% if words_len != 0 %}
+            {% for word in words %}
+            <p>{{word}}</p>
+            {% endfor %}
+          {% else %}
+          {% endif %}
+        </div>
+
+        <div class="col-sm-3">
+          <form class="" action="index.html" method="post">
+              {% for rfp in rfp_areas %}
+              <input type="checkbox" name="" value="{{rfp}}"> {{rfp}}
+              <br>
+              {% endfor %}
+          </form>
+        </div>
+
+        <div class="col-sm-3">
+          <form class="" action="index.html" method="post">
+              {% for agency in agencies %}
+              <input type="checkbox" name="" value="{{agency}}"> {{agency}}
+              <br>
+              {% endfor %}
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </body>
+</html>

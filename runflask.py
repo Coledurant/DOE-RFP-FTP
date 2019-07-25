@@ -56,6 +56,65 @@ def get_directory_structure(rootdir):
         parent[folders[-1]] = subdir
     return dir
 
+def reset_key_words():
+
+    os.chdir(DATA_DIR)
+
+    if not os.path.exists('key_words.txt'):
+
+        return None
+
+    else:
+
+        with open('key_words.txt', 'w') as f:
+
+            f.write('')
+
+    os.chdir(BASE_DIR)
+
+    return
+
+def write_word(word):
+
+    os.chdir(DATA_DIR)
+
+    if not os.path.exists('key_words.txt'):
+
+        with open('key_words.txt', 'w') as f:
+
+            f.write(word + '\n')
+
+    else:
+
+        with open('key_words.txt', 'a') as f:
+
+            f.write(word + '\n')
+
+    os.chdir(BASE_DIR)
+
+    return None
+
+def read_words():
+
+    os.chdir(DATA_DIR)
+
+    if not os.path.exists('key_words.txt'):
+
+        with open('key_words.txt', 'w') as f:
+
+            f.write(word + '\n')
+        return 0
+
+    else:
+
+        with open('key_words.txt', 'r') as f:
+
+            lines = set(f.readlines())
+
+    os.chdir(BASE_DIR)
+
+    return lines
+
 
 ###############################################################################
 ###############################################################################
@@ -148,9 +207,38 @@ def downloadFile(filepath):
     return send_file(path, as_attachment=True)
 
 
+@app.route("/dashboard", methods=['POST','GET'])
+def dashboard():
+
+    template_data = dict()
+
+    agencies = ['Department of Energy']
+    template_data['agencies'] = agencies
+
+    data_dir_structure = data_dir_structure = get_directory_structure(DATA_DIR)
+    data_dir_structure = data_dir_structure.get('data')
+
+    rfp_areas = [rfp for rfp in data_dir_structure.keys() if rfp not in ['history.xlsx', 'key_words.txt']]
+    template_data['rfp_areas'] = rfp_areas
+
+    if request.method == 'POST':
+
+        write_word(request.form.get('word'))
+
+        words = read_words()
+
+        template_data['words'] = words
+
+        template_data['words_len'] = len(words)
+
+    else:
+
+        reset_key_words()
+
+        template_data['words_len'] = 0
 
 
-
+    return render_template('dashboard.html', **template_data)
 
 
 if __name__ == "__main__":

@@ -869,6 +869,8 @@ def get_sdge_rfp_info(rfp, open_closed_dir):
 
                     pdf_name = a.text + '.pdf'
 
+                    print(a['href'])
+
                     download_pdf(a['href'], pdf_name)
 
             except KeyError:
@@ -901,6 +903,24 @@ def get_sdge_rfp_info(rfp, open_closed_dir):
 
             real_title_pars[title] = real_pars
             title_pars[title] = real_pars
+
+        info_txt = ''
+
+        for title, par in real_title_pars.items():
+
+            if len(par) > 1:
+
+                par = ''.join([x.text for x in par])
+
+            else:
+
+                par = par[0].text
+
+            info_txt += "{}\n{}\n\n".format(title.text, par)
+
+        with open('info.txt', 'w') as f:
+
+            f.write(info_txt)
 
 
 
@@ -993,12 +1013,12 @@ def san_diego_gas_and_electric_scrape():
 ###############################################################################
 def main():
 
-    aep()
-    print('   - AEP finished')
-    puerto_rico_government()
-    print('   - Government of Puerto Rico finished')
-    ny_rev_connect()
-    print('   - NY Rev Connect finished')
+    # aep()
+    # print('   - AEP finished')
+    # puerto_rico_government()
+    # print('   - Government of Puerto Rico finished')
+    # ny_rev_connect()
+    # print('   - NY Rev Connect finished')
     san_diego_gas_and_electric_scrape()
     print('   - San Diego Gas and Electric finished')
 
