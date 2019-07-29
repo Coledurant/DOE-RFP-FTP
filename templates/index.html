@@ -52,7 +52,11 @@
     </form>
   </div>
   <br>
-  <p style="text-align:center;">{{last_run.strftime("Last Run: %m/%d/%y at %H:%M")}}</p>
+  {% if last_run == 'Last run: Never' %}
+    <p style="text-align:center;">{{last_run}}</p>
+  {% else %}
+    <p style="text-align:center;">{{last_run.strftime("Last Run: %m/%d/%y at %H:%M")}}</p>
+  {% endif %}
   <br>
     {% if selection == 'All Files' %}
       {% if data_dir_len != 0 %}

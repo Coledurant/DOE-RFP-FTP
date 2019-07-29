@@ -18,6 +18,7 @@ from pandas import ExcelWriter
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter, column_index_from_string
 import operator
+import feedparser
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 logger = logging.getLogger(__name__)
@@ -27,7 +28,7 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
-from classes import ConEdisonRFP, ConEdisonDocument
+from classes import ConEdisonRFP, ConEdisonDocument, DominionRSSItem
 
 ###############################################################################
 ###############################################################################
@@ -240,6 +241,20 @@ san_diego_gas_and_electric_dir = os.path.join(data_dir, 'San Diego Gas and Elect
 if not os.path.exists(san_diego_gas_and_electric_dir):
     os.mkdir(san_diego_gas_and_electric_dir)
     history('created_dir', dir_location = san_diego_gas_and_electric_dir.split('RFPFinder')[1])
+else:pass
+
+#PG & E
+pg_e_dir = os.path.join(data_dir, 'PG & E')
+if not os.path.exists(pg_e_dir):
+    os.mkdir(pg_e_dir)
+    history('created_dir', dir_location = pg_e_dir.split('RFPFinder')[1])
+else:pass
+
+# Dominion Energy
+dominion_energy_dir = os.path.join(data_dir, 'Dominion Energy')
+if not os.path.exists(dominion_energy_dir):
+    os.mkdir(dominion_energy_dir)
+    history('created_dir', dir_location = dominion_energy_dir.split('RFPFinder')[1])
 else:pass
 
 ###############################################################################
@@ -833,7 +848,7 @@ def ny_rev_connect():
 
     return
 
-#
+# San Diego Gas and Electric
 ###############################################################################
 
 def get_sdge_rfp_info(rfp, open_closed_dir):
@@ -868,8 +883,6 @@ def get_sdge_rfp_info(rfp, open_closed_dir):
                 if a['href'].endswith('.pdf'):
 
                     pdf_name = a.text + '.pdf'
-
-                    print(a['href'])
 
                     download_pdf(a['href'], pdf_name)
 
@@ -1009,18 +1022,160 @@ def san_diego_gas_and_electric_scrape():
     return
 
 
+# PG & E
+###############################################################################
+def pg_e_scrape():
+
+    os.chdir(pg_e_dir)
+
+    url = conf.get('pg_e', 'pg_e_url')
+
+
+    rfp_url = 'https://www.pge.com/en_US/for-our-business-partners/purchasing-program/bid-opportunities/bid-opportunities.page'
+    rfp_html = requests.get(rfp_url).content
+    rfp_soup = BeautifulSoup(rfp_html, 'lxml')
+
+    rfp_table = rfp_soup.find('table', attrs={'aria-describedby':'table-summary634'})
+    rfp_tbody = rfp_table.find('tbody')
+
+    for tr in rfp_tbody.findAll('tr'):
+
+        row_link = tr.find('a')
+        link_title = row_link.text
+        link_href = 'https://www.pge.com' + row_link['href']
+
+        deadline = tr.find('td', attrs={'headers':'col-634-2'}).find('p').text
+
+        pg_e_rfp_area_dir = os.path.join(pg_e_dir, link_title)
+        if not os.path.exists(pg_e_rfp_area_dir):
+            os.mkdir(pg_e_rfp_area_dir)
+            history('created_dir', dir_location = pg_e_rfp_area_dir.split('RFPFinder')[1])
+        os.chdir(pg_e_rfp_area_dir)
+
+        download_pdf(link_href, link_title + '.pdf')
+
+        os.chdir(pg_e_dir)
+
+
+
+
+    os.chdir(curr_dir)
+
+    return
+
+
+
+# Dominion Energy
+###############################################################################
+
+def get_rss_link_info_text(rss_item_class):
+
+    '''
+    Gets RSS news item information and saves that information in a .txt file
+    Parameters:
+        rss_item_class (class): Used to get news title and link
+    Returns:
+        Will save an info.txt file to the news folder with all the information on the news release webpage
+    '''
+
+    printable_link = rss_item_class.link + '?printable'
+    rss_html = requests.get(printable_link).content
+    rss_soup = BeautifulSoup(rss_html, 'lxml')
+
+    content_div = rss_soup.find('div', attrs={'class':'wd_body wd_news_body'})
+    pars = '\n\n'.join([p.text for p in content_div.findAll('p')])
+
+    previews = '\n'.join([d.text for d in rss_soup.findAll('div', attrs={'class':'wd_subtitle wd_language_left'})])
+
+    with open('info.txt', 'w') as f:
+
+        f.write(rss_item_class.title)
+        f.write('\n\n')
+
+        f.write(previews)
+        f.write('\n\n\n')
+
+        f.write(pars)
+        f.write('\n\n\n\n\n')
+
+        f.write('Website: {0}'.format(rss_item_class.link))
+
+    return
+
+
+def dominion_rss_parser():
+
+    '''
+    Reads the Dominion RSS feed for all news releases
+    Parameters:
+        ---
+    Returns:
+        feed_item_class_list (list): A list of DominionRSSItem class items. One for every news item
+    '''
+
+    os.chdir(dominion_energy_dir)
+
+    dominion_energy_rss_dir = os.path.join(dominion_energy_dir, 'RSS Feed')
+    if not os.path.exists(dominion_energy_rss_dir):
+        os.mkdir(dominion_energy_rss_dir)
+        history('created_dir', dir_location = dominion_energy_rss_dir.split('RFPFinder')[1])
+    os.chdir(dominion_energy_rss_dir)
+
+    rss_feed_url = url = conf.get('dominion_energy', 'dominion_energy_rss_url')
+
+    NewsFeed = feedparser.parse(rss_feed_url)
+
+    feed_item_class_list = []
+
+    for news_item in NewsFeed['entries']:
+
+        title = news_item['title']
+        link = news_item['link']
+        description = news_item['description']
+
+        feed_item_class = DominionRSSItem(title = title, link = link, description = description)
+
+        feed_item_class_list.append(feed_item_class)
+
+    for rss_news_item in feed_item_class_list:
+
+        rss_item_dir = os.path.join(dominion_energy_rss_dir, rss_news_item.title)
+        if not os.path.exists(rss_item_dir):
+            os.mkdir(rss_item_dir)
+            history('created_dir', dir_location = rss_item_dir.split('RFPFinder')[1])
+        os.chdir(rss_item_dir)
+
+        get_rss_link_info_text(rss_news_item)
+
+        os.chdir(dominion_energy_rss_dir)
+
+    os.chdir(curr_dir)
+
+    return feed_item_class_list
+
+
+
+def dominion_energy_scrape():
+
+    return
+
 # Main
 ###############################################################################
 def main():
 
-    # aep()
-    # print('   - AEP finished')
-    # puerto_rico_government()
-    # print('   - Government of Puerto Rico finished')
-    # ny_rev_connect()
-    # print('   - NY Rev Connect finished')
+    aep()
+    print('   - AEP finished')
+    puerto_rico_government()
+    print('   - Government of Puerto Rico finished')
+    ny_rev_connect()
+    print('   - NY Rev Connect finished')
     san_diego_gas_and_electric_scrape()
     print('   - San Diego Gas and Electric finished')
+    pg_e_scrape()
+    print('   - PG & E finished')
+    dominion_rss_parser()
+    print('   - Dominion RSS Feed finished')
+
 
 ###############################################################################
 ###############################################################################

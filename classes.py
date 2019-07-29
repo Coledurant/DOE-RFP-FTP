@@ -28,3 +28,11 @@ class ConEdisonDocument(object):
     def __str__(self):
 
         return self.document_name
+
+class DominionRSSItem(object):
+
+    def __init__(self, title, link, description):
+
+        self.title = title
+        self.link = link
+        self.description = description
