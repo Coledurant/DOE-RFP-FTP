@@ -1151,13 +1151,39 @@ def dominion_rss_parser():
 
     os.chdir(curr_dir)
 
+    print('      - Dominion RSS Feed finished')
+
     return feed_item_class_list
 
 
 
 def dominion_energy_scrape():
 
-    return
+    os.chdir(dominion_energy_dir)
+
+    url = conf.get('dominion_energy', 'dominion_energy_url')
+
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'lxml')
+
+    rfp_bid_documents = [heading for heading in soup.findAll('h3') if heading.text == 'RFP Bid Documents'][0].find_all_next('ul')[0]
+    rfp_title_link_tups = [(rfp.text, 'https://www.dominionenergy.com' + rfp['href']) for rfp in rfp_bid_documents.findAll('a')]
+
+    dominion_energy_rfp_pdfs_dir = os.path.join(dominion_energy_dir, 'RFP PDFs')
+    if not os.path.exists(dominion_energy_rfp_pdfs_dir):
+        os.mkdir(dominion_energy_rfp_pdfs_dir)
+        history('created_dir', dir_location = dominion_energy_dir.split('RFPFinder')[1])
+    os.chdir(dominion_energy_rfp_pdfs_dir)
+
+    for rfp_title, rfp_link in rfp_title_link_tups:
+
+        download_pdf(rfp_link, rfp_title + '.pdf')
+
+    os.chdir(dominion_energy_dir)
+
+    print('   - Dominion Energy finished')
+
+    dominion_rss_parser()
 
 # Main
 ###############################################################################
@@ -1173,8 +1199,9 @@ def main():
     print('   - San Diego Gas and Electric finished')
     pg_e_scrape()
     print('   - PG & E finished')
-    dominion_rss_parser()
-    print('   - Dominion RSS Feed finished')
+    dominion_energy_scrape()
+
+
 
 
 ###############################################################################
