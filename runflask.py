@@ -29,7 +29,8 @@ except ImportError:
 from functools import reduce
 
 from run import run
-
+from tools.classes import RSSParser
+import feedparser
 from flask import Flask, render_template, request, send_file
 app = Flask(__name__)
 
@@ -200,13 +201,6 @@ def index():
 
     return render_template('index.html', **template_data)
 
-@app.route('/download/<path:filepath>')
-def downloadFile(filepath):
-    #For windows you need to use drive name [ex: F:/Example.pdf]
-    path = "{}/{}".format(DATA_DIR, filepath)
-    return send_file(path, as_attachment=True)
-
-
 @app.route("/dashboard", methods=['POST','GET'])
 def dashboard():
 
@@ -239,7 +233,6 @@ def dashboard():
 
 
     return render_template('dashboard.html', **template_data)
-
 
 if __name__ == "__main__":
 

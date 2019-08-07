@@ -28,7 +28,7 @@ try:
 except ImportError:
     import ConfigParser as configparser
 
-from classes import ConEdisonRFP, ConEdisonDocument, DominionRSSItem
+from tools.classes import ConEdisonRFP, ConEdisonDocument, DominionRSSItem, RSSParser
 
 ###############################################################################
 ###############################################################################
@@ -255,6 +255,13 @@ dominion_energy_dir = os.path.join(data_dir, 'Dominion Energy')
 if not os.path.exists(dominion_energy_dir):
     os.mkdir(dominion_energy_dir)
     history('created_dir', dir_location = dominion_energy_dir.split('RFPFinder')[1])
+else:pass
+
+# USAID
+usaid_dir = os.path.join(data_dir, 'USAID')
+if not os.path.exists(usaid_dir):
+    os.mkdir(usaid_dir)
+    history('created_dir', dir_location = usaid_dir.split('RFPFinder')[1])
 else:pass
 
 ###############################################################################
@@ -1185,6 +1192,60 @@ def dominion_energy_scrape():
 
     dominion_rss_parser()
 
+
+# USAID
+###############################################################################
+
+def usaid_rss_feed():
+
+    usaid_rss_feed_dir = os.path.join(usaid_dir, 'RSS Feed')
+    if not os.path.exists(usaid_rss_feed_dir):
+        os.mkdir(usaid_rss_feed_dir)
+        history('created_dir', dir_location = usaid_rss_feed_dir.split('RFPFinder')[1])
+    else:pass
+
+    os.chdir(usaid_rss_feed_dir)
+
+    all_opportunities = []
+
+    new_opps_by_agency = RSSParser(title = 'USAID RSS Parser - New Opportunities by Agency',
+                                 feed_url = 'https://www.grants.gov/rss/GG_NewOppByAgency.xml')
+
+    new_opps_by_category = RSSParser(title = 'USAID RSS Parser - New Opportunities by Category',
+                                 feed_url = 'https://www.grants.gov/rss/GG_NewOppByCategory.xml')
+
+    mod_opps_by_agency = RSSParser(title = 'USAID RSS Parser - Modified Opportunities by Agency',
+                                 feed_url = 'https://www.grants.gov/custom/spoExit.jsp?p=/rss/GG_OppModByAgency.xml')
+
+    mod_opps_by_category = RSSParser(title = 'USAID RSS Parser - Modified Opportunities by Category',
+                                 feed_url = 'https://www.grants.gov/custom/spoExit.jsp?p=/rss/GG_OppModByCategory.xml')
+
+    for feed_parser in [new_opps_by_agency, new_opps_by_category, mod_opps_by_agency, mod_opps_by_category]:
+
+        feed_item_dict_list = feed_parser.parse()
+
+        for feed_item in feed_item_dict_list:
+
+            all_opportunities.append(feed_item)
+
+
+
+
+
+
+
+    os.chdir(usaid_dir)
+    os.chdir(curr_dir)
+    return
+
+def usaid_scrape():
+
+    usaid_rss_feed()
+
+
+
+    return
+
 # Main
 ###############################################################################
 def main():
@@ -1200,8 +1261,8 @@ def main():
     pg_e_scrape()
     print('   - PG & E finished')
     dominion_energy_scrape()
-
-
+    usaid_scrape()
+    print('   - USAID finished')
 
 
 ###############################################################################

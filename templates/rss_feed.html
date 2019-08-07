@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    {% for rss_dict_item in rss_dict %}
+      {{rss_dict_item.get('title')}}
+      <br>
+    {% endfor %}
+
+  </body>
+</html>
